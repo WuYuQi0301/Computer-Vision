@@ -11,15 +11,14 @@ using namespace cimg_library;
 
 class Histeq
 {
-private:
-	CImg<unsigned char> img;
 public:
-Histeq(string path, string root, int seq);
+CImg<unsigned char> grayHisteq(string path, string root);
+CImg<unsigned char> RGBHisteq(string path, string root);
 
 void showHist(float* hist);
 CImg<unsigned char> mapping(CImg<unsigned char> img1, float* cdf);
 float* getCDF(float* hist);
-float* getHist(CImg<unsigned char> &img1);
+float* getHist(CImg<unsigned char> &img1, int flag = 4);
 
 CImg<unsigned char> RGB2gray(CImg<unsigned char> img1);
 
