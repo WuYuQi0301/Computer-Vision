@@ -10,7 +10,8 @@ CImg<float> ColorProcessing::colorTransfer(string path1, string path2)
 	cout << "rgb2lab..." << endl;
 	img1 = rgb2lab(img1);
 	img2 = rgb2lab(img2);
-
+// img1.save("lab1.jpg");
+// img1.display("lab1");
 	//计算统计量
 	cout << "calculating mean..." << endl;
 	float* mean1 = getMean(img1), *mean2 = getMean(img2);
@@ -57,7 +58,7 @@ CImg<float> ColorProcessing::rgb2lab(CImg<float> img)
 			{
 				LMS[i] += matrix1[i][j] * img(x, y, j); 
 			}
-			LMS[i]  = log10(LMS[i]);
+			LMS[i]  = (LMS[i] == 0)?1:log10(LMS[i]);
 		}
 		//lms 2 lab
 		for (int i = 0; i < 3; ++i)
@@ -100,7 +101,7 @@ CImg<float> ColorProcessing::lab2rgb(CImg<float> img)
 			{
 				LMS[i] += matrix2[i][j] * temp[j]; 
 			}
-			LMS[i] = pow(LMS[i], 10);
+			LMS[i] = pow(10, LMS[i]);
 		}
 		//lms 2 rgb
 		for (int i = 0; i < 3; ++i)
@@ -119,25 +120,29 @@ float* ColorProcessing::getMean(CImg<float> img)
 	float* mean = new float[3];
 	for (int i = 0; i < 3; ++i)
 		mean[i] = 0;
-
-	for (int i = 0; i < img.height(); ++i)
+	cimg_forXY(img, x, y)
 	{
-		if(i == 659)
-			continue;
-		double row_mean[3] = {0};
-		for (int k = 0; k < 3; ++k)
-			row_mean[k] = 0;
-
-		for (int j = 0; j < img.width(); ++j)
-			for (int k = 0; k < 3; ++k)
-				row_mean[k] += img(j, i, k);
-		
-		for (int k = 0; k < 3; ++k)
-			mean[k] += (row_mean[k]/img.width());
+	for (int i = 0; i < 3; ++i)
+		mean[i] += img(x, y, i);	
 	}
+	for (int i = 0; i < 3; ++i)
+		mean[i] /= (img.height()*img.width());
+	// for (int i = 0; i < img.height(); ++i)
+	// {
+	// 	double row_mean[3] = {0};
+	// 	for (int k = 0; k < 3; ++k)
+	// 		row_mean[k] = 0;
 
-	for (int k = 0; k < 3; ++k)
-		mean[k] /= img.height();
+	// 	for (int j = 0; j < img.width(); ++j)
+	// 		for (int k = 0; k < 3; ++k)
+	// 			row_mean[k] += img(j, i, k);
+		
+	// 	for (int k = 0; k < 3; ++k)
+	// 		mean[k] += (row_mean[k]/img.width());
+	// }
+
+	// for (int k = 0; k < 3; ++k)
+	// 	mean[k] /= img.height();
 	
 	return mean;
 }
@@ -148,8 +153,6 @@ float* ColorProcessing::getStandardDviationRatio(CImg<float> img1, float* mean1,
 
 	cimg_forXY(img1, x, y)
 	{
-		if (y == 659)
-			continue;
 		for (int i = 0; i < 3; ++i)
 		{
 			sd1[i] += pow(img1(x, y, i)- mean1[i], 2);

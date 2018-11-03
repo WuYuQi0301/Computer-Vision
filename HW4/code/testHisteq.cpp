@@ -14,6 +14,6 @@ int main(int argc, char const *argv[])
 	// img2.display("RGBhisteqed");
 	// img2.save((root+"RGB1.bmp").c_str());
 	
-	CImg<unsigned char> img = test.colorTransfer((rootSrc+"2.bmp"), (rootSrc+"1.bmp"));
+	CImg<unsigned char> img = test.colorTransfer((rootSrc+"3.bmp"), (rootSrc+"1.bmp"));
 	img.display();
 }

@@ -5,9 +5,7 @@ using namespace cimg_library;
 
 int main(int argc, char const *argv[])
 {
-	CImg<float> img("../testdata/2.bmp");
-
-	// int x = 123, y = 400;
+	CImg<float> img("../testdata/3.bmp");
 
 	cimg_forXY(img, x, y)
 	{
@@ -21,26 +19,46 @@ int main(int argc, char const *argv[])
 		{
 			for (int j = 0; j < 3; ++j)
 			{
-				LMS[i] += matrix1[i][j] * img(x, y, j); 
+				LMS[i] += matrix1[i][j] * img(x, y, j);
+				if (x == 255 && y == 255)
+				{
+					cout << matrix1[i][j] << " " ;
+				}
 			}
+			if (x == 255 && y == 255)
+				cout << endl;
 			LMS[i]  = log10(LMS[i]);
 		}
-
-		// cout << LMS[0] << " " << LMS[1] << " " << LMS[2] << endl;
+		if (x == 255 && y == 255)
+		{
+			for (int i = 0; i < 3; i++)
+			{
+				cout << LMS[i] << " " << endl;
+			}
+			cout << endl;
+		}
 			//lms 2 lab
 		for (int i = 0; i < 3; ++i)
 		{
 			for (int j = 0; j < 3; ++j)
 			{
-				temp[i] += matrix2[i][j] * LMS[j]; 
+				temp[i] += matrix2[i][j] * LMS[j];
+				if (x == 255 && y == 255)
+					cout << matrix2[i][j] << " " ;
 			}
+			if (x == 255 && y == 255)
+				cout << endl ;
 		}
-// 
-		// for (int i = 0; i < 3; ++i)
-		 // {
-		 	// cout << temp[i] << " ";
-		 // } 
-		 // cout << endl;
+
+		if (x == 255 && y == 255)
+		{
+			for (int i = 0; i < 3; i++)
+			{
+				cout << temp[i] << " " << endl;
+			}
+			cout << endl;
+		}
+		
 		for (int i = 0; i < 3; ++i)
 		{
 			for (int j = 0; j < 3; ++j)
@@ -49,11 +67,17 @@ int main(int argc, char const *argv[])
 			}
 			img(x, y, i) = lab[i];
 		}
+
+		if (x == 255 && y == 255)
+		{
+			cout << "in lab" << endl;
+			for (int i = 0; i < 3; i++)
+			{
+				cout << img(x, y, i) << " " << endl;
+			}
+			cout << endl;
+		}
 	}
-    // cout << img(x, y, 0) << " " << img(x, y, 1) << " " << img(x, y, 2) << endl;
-
-
-    // cout << img(x, y, 0) << " " << img(x, y, 1) << " " << img(x, y, 2) << endl;
 	float matrix4[3][3] = {{4.4679, -3.5873, 0.1193},{-1.2186, 2.3809, -0.1624},{0.0497, -0.2439,  1.2045}};
 	float matrix5[3][3] = {{1, 1, 1},{1, 1,-1},{1,-2, 0}};
 	float matrix6[3][3] = {{sqrt(3)/3, 0, 0},{0, sqrt(6)/6, 0},{0, 0, sqrt(2)/2}};
@@ -66,15 +90,56 @@ int main(int argc, char const *argv[])
 			for (int j = 0; j < 3; ++j)
 			{
 				temp[i] += matrix6[i][j] * img(x, y, j); 
+				if (x == 255 && y == 255)
+					cout << matrix6[i][j] << " " ;
 			}
+			if (x == 255 && y == 255)
+				cout << endl ;
 		}
+		if (x == 255 && y == 255)
+		{
+			for (int i = 0; i < 3; i++)
+			{
+				cout << temp[i] << " " << endl;
+			}
+			cout << endl;
+		}
+
 		for (int i = 0; i < 3; ++i)
 		{
 			for (int j = 0; j < 3; ++j)
 			{
 				LMS[i] += matrix5[i][j] * temp[j]; 
+				if (x == 255 && y == 255)
+					cout << matrix5[i][j] << " " ;
 			}
-			LMS[i] = pow(LMS[i], 10);
+			if (x == 255 && y == 255)
+				cout << endl ;
+
+		}
+		if (x == 255 && y == 255)
+		{
+			cout << "LMS " << endl;
+			for (int i = 0; i < 3; i++)
+				cout << LMS[i] << " " << endl;
+			cout << endl;
+		}
+
+		for (int i = 0; i < 3; i++)
+			LMS[i] = pow(10, LMS[i]);
+		if (x == 255 && y == 255)
+		{
+			cout << "LMS '" << endl;
+			for (int i = 0; i < 3; i++)
+				cout << LMS[i] << " " << endl;
+			cout << endl;
+		}
+		if (x == 255 && y == 255)
+		{
+			cout << "LMS ' " << endl;
+			for (int i = 0; i < 3; i++)
+				cout << LMS[i] << " " << endl;
+			cout << endl;
 		}
 		//lms 2 rgb
 		for (int i = 0; i < 3; ++i)
@@ -82,14 +147,24 @@ int main(int argc, char const *argv[])
 			for (int j = 0; j < 3; ++j)
 			{
 				rgb[i] += matrix4[i][j] * LMS[j]; 
+				if (x == 255 && y == 255)
+					cout << matrix4[i][j] << " " ;
 			}
-			img(x, y, i) = rgb[i];
+			if (x == 255 && y == 255)
+				cout << endl ;
+			img(x, y, i) = (int)rgb[i];
 		}
 	}
-	CImg<float> img2("../testdata/2.bmp");
-	
+
+
+
+	CImg<float> img2("../testdata/3.bmp");
+	cout << img(255, 255, 0) << " " << img(255, 255, 1) << " " << img(255, 255, 2) << endl;
+	cout << img2(255, 255, 0) << " " << img2(255, 255, 1) << " " << img2(255, 255, 2) << endl << endl << endl;
+
+	img2.display();
+	img.display();
 	img = img - img2;
 	img.display();
-	img2.display();
 	return 0;
 }
