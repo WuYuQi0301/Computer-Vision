@@ -3,6 +3,8 @@
 CImg<float> ColorProcessing::colorTransfer(string path1, string path2)
 {
 	CImg<float> img1(path1.c_str()), img2(path2.c_str());
+	img1.display("before");
+	img2.display("inter");
 
 	//转换颜色空间：RGB到lab
 	cout << "rgb2lab..." << endl;
@@ -55,7 +57,7 @@ CImg<float> ColorProcessing::rgb2lab(CImg<float> img)
 			{
 				LMS[i] += matrix1[i][j] * img(x, y, j); 
 			}
-			LMS[i]  = log(LMS[i]);
+			LMS[i]  = log10(LMS[i]);
 		}
 		//lms 2 lab
 		for (int i = 0; i < 3; ++i)
@@ -118,35 +120,24 @@ float* ColorProcessing::getMean(CImg<float> img)
 	for (int i = 0; i < 3; ++i)
 		mean[i] = 0;
 
-	// cimg_forXY(img, x, y)
-	// {
-	// 	for (int i = 0; i < 3; ++i)
-	// 		mean[i] += img(x, y, i);
-	// 	cout << "mean: " << mean[0] << " " << mean[1] << " " << mean[2] << endl;
-	// }
-	// for (int i = 0; i < 3; ++i)
-	// 	mean[i] /= (img.height()*img.width());
-
 	for (int i = 0; i < img.height(); ++i)
 	{
+		if(i == 659)
+			continue;
 		double row_mean[3] = {0};
 		for (int k = 0; k < 3; ++k)
-			mean[k] = 0;
+			row_mean[k] = 0;
 
 		for (int j = 0; j < img.width(); ++j)
 			for (int k = 0; k < 3; ++k)
 				row_mean[k] += img(j, i, k);
 		
 		for (int k = 0; k < 3; ++k)
-			mean[k] += row_mean[k]/(img.width()*img.height());
-
-		// if ()
-		cout << "mean: " << i << " " << mean[0] << " " << mean[1] << " " << mean[2] << endl;
+			mean[k] += (row_mean[k]/img.width());
 	}
 
-	// cout << "mean: " << mean[0] << " " << mean[1] << " " << mean[2] << endl;
-	// for (int k = 0; k < 3; ++k)
-	// 	mean[k] /= img.height();
+	for (int k = 0; k < 3; ++k)
+		mean[k] /= img.height();
 	
 	return mean;
 }
@@ -157,20 +148,29 @@ float* ColorProcessing::getStandardDviationRatio(CImg<float> img1, float* mean1,
 
 	cimg_forXY(img1, x, y)
 	{
+		if (y == 659)
+			continue;
 		for (int i = 0; i < 3; ++i)
+		{
 			sd1[i] += pow(img1(x, y, i)- mean1[i], 2);
+		}
 	}
+	
 	for (int i = 0; i < 3; ++i)
-		sd1[i] = sqrt((1/(img1.width()*img1.height() - 1))*sd1[i]);
+		sd1[i] = sqrt(sd1[i]/(img1.width()*img1.height() - 1));
+
+	cout << "sd " << sd1[0]<< " " << sd1[1] << " " << sd1[2] << endl;
 
 	cimg_forXY(img2, x, y)
 	{
 		for (int i = 0; i < 3; ++i)
 			sd2[i] += pow(img2(x, y, i)- mean2[i], 2);     //计算像素值与均值差的平方和
 	}
+	
 	for (int i = 0; i < 3; ++i)                            //计算1/N 和开方
-		sd2[i] = sqrt((1/(img2.width()*img2.height() - 1))*sd2[i]);
+		sd2[i] = sqrt( sd2[i] /(img2.width()*img2.height() - 1));
 
+	cout << "sd " << sd2[0]<< " " << sd2[1] << " " << sd2[2] << endl;
 	for (int i = 0; i < 3; ++i)
 		ratio[i] = sd2[i]/sd1[i];
 	return ratio;

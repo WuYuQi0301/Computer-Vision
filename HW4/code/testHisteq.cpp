@@ -16,5 +16,4 @@ int main(int argc, char const *argv[])
 	
 	CImg<unsigned char> img = test.colorTransfer((rootSrc+"2.bmp"), (rootSrc+"1.bmp"));
 	img.display();
-	return 0;
 }
