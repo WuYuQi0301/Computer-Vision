@@ -5,7 +5,7 @@ using namespace cimg_library;
 
 int main(int argc, char const *argv[])
 {
-	CImg<float> img("../testdata/3.bmp");
+	CImg<float> img("../testdata/sunset1.bmp");
 
 	cimg_forXY(img, x, y)
 	{
@@ -158,7 +158,7 @@ int main(int argc, char const *argv[])
 
 
 
-	CImg<float> img2("../testdata/3.bmp");
+	CImg<float> img2("../testdata/sunset1.bmp");
 	cout << img(255, 255, 0) << " " << img(255, 255, 1) << " " << img(255, 255, 2) << endl;
 	cout << img2(255, 255, 0) << " " << img2(255, 255, 1) << " " << img2(255, 255, 2) << endl << endl << endl;
 

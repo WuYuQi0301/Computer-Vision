@@ -25,7 +25,7 @@ private:
 
 public:
 	CImg<unsigned char> grayHisteq(string path, string root);
-	CImg<unsigned char> RGBHisteq(string path, string root);
+	CImg<unsigned char> RGBHisteq(string path);
 	CImg<float> colorTransfer(string path1, string path2);
 	
 };

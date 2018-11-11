@@ -10,11 +10,10 @@ CImg<float> ColorProcessing::colorTransfer(string path1, string path2)
 	cout << "rgb2lab..." << endl;
 	img1 = rgb2lab(img1);
 	img2 = rgb2lab(img2);
-// img1.save("lab1.jpg");
-// img1.display("lab1");
 	//计算统计量
 	cout << "calculating mean..." << endl;
-	float* mean1 = getMean(img1), *mean2 = getMean(img2);
+	float* mean1 = getMean(img1);
+	float *mean2 = getMean(img2);
 	cout << "mean1: " << mean1[0] << " " << mean1[1] << " " << mean1[2] << endl;
 	cout << "mean2: " << mean2[0] << " " << mean2[1] << " " << mean2[2] << endl;
 
@@ -37,7 +36,7 @@ CImg<float> ColorProcessing::colorTransfer(string path1, string path2)
 	//转换颜色空间：lab到RGB
 	cout << "lab2rgb..." << endl;
 	img1 = lab2rgb(img1);
-
+	
 	delete[] mean1;
 	delete[] mean2;
 	delete[] sd_ratio;
@@ -110,7 +109,7 @@ CImg<float> ColorProcessing::lab2rgb(CImg<float> img)
 			{
 				rgb[i] += matrix1[i][j] * LMS[j]; 
 			}
-			img(x, y, i) = rgb[i];
+			img(x, y, i) = (rgb[i] > 255)?255:rgb[i];
 		}
 	}
 	return img;
@@ -185,7 +184,10 @@ CImg<unsigned char> ColorProcessing::grayHisteq(string path, string root)
 	cout << "gray histgram" << endl;
 	CImg<unsigned char> img1(path.c_str());
 	if (img1.spectrum() != 1)
+	{
 		img1 = RGB2gray(img1);
+		img1.save(root.c_str());
+	}
 
 	float* hist = getHist(img1, 4);
 	showHist(hist);
@@ -203,7 +205,7 @@ CImg<unsigned char> ColorProcessing::grayHisteq(string path, string root)
 	delete[] cdf;
 	return img1;
 }
-CImg<unsigned char> ColorProcessing::RGBHisteq(string path, string root)
+CImg<unsigned char> ColorProcessing::RGBHisteq(string path)
 {
 	cout << "rgb histgram" << endl;
 	CImg<unsigned char> img1(path.c_str());
@@ -261,7 +263,6 @@ float* ColorProcessing::getCDF(float* hist)
 	float* cdf = new float[256];
 	for (int i = 1; i < 256; ++i)
 		cdf[i] = hist[i] + cdf[i-1];
-	cout << "cdf" << cdf[100] << endl;
 	return cdf;
 }
 
