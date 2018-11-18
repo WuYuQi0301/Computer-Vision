@@ -120,4 +120,43 @@ Image **Morphing**
    2. 插入一个散点，在三角形链表中找出*外接圆*包含插入点的三角形（影响三角形），删除影响三角形的公共边，将插入点同影响三角形的全部定点连接起来。
    3. LOP局部优化
 
+### 仿射变换
+
+对于每一个三角形
+$$
+U1 = \begin{bmatrix}
+ pset1[k].x&pset1[k].x  &pset1[k].x \\ 
+ pset1[k].y&pset1[k].y  &pset1[k].y \\ 
+ 1& 1 & 1
+\end{bmatrix}
+$$
+
+$$
+U2 = \begin{bmatrix}
+ pset2[k].x&pset2[k].x  &pset2[k].x \\ 
+ pset2[k].y&pset2[k].y  &pset2[k].y \\ 
+ 1& 1 & 1
+\end{bmatrix}
+$$
+
+$$
+A = \begin{bmatrix}
+ p1.x&p2.x  &p3.x \\ 
+ p1.y&p2.y  &p3.y \\ 
+ 1& 1 & 1
+\end{bmatrix}
+$$
+
+$$
+A^{-1}
+$$
+
+
+$$
+m1 = U1*A^{-1}
+$$
+
+$$
+m2 = U2*A^{-1}
+$$
 
