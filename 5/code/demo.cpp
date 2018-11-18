@@ -20,8 +20,8 @@ struct Point
 
 int main(int argc, char const *argv[])
 {
-	CImg<unsigned char> img1("../src/2.bmp");
-	CImg<unsigned char> img2("../src/1.bmp");
+	CImg<unsigned char> img1("../src/1.bmp");
+	CImg<unsigned char> img2("../src/2.bmp");
 	CImg<unsigned char> img3 = CImg<unsigned char>(img2.width(), img2.height(), 1, 3, 0);
 
 	cout << img1.height() << " " << img1.width() << endl;
@@ -38,14 +38,11 @@ int main(int argc, char const *argv[])
 
 		Point p1(floor(_x), floor(_y)), p2(ceil(_x), floor(_y));
 		Point p3(floor(_x), ceil(_y)), p4(ceil(_x), ceil(_y));
-		// cout <<"y"<< p1.y <<" " <<p4.y << floor(_y) << endl;
-
 		Point p5(_x, floor(_y)), p6(_x, ceil(_y));
 
 		if(p1.x < 0 || p1.x >= img1.width() || p4.x < 0 || p4.x >= img1.width()
 			|| p1.y < 0 || p1.y >= img1.height() || p4.y < 0 || p4.y >= img1.height())
 		{
-			cout << "out of range" << endl;
 			continue;
 		}
 		if (_x == p1.x)
@@ -88,39 +85,16 @@ int main(int argc, char const *argv[])
 		{
 			for (int i = 0; i < 3; ++i)
 			{
-				/* code */
-			// cout << "origin" << i << " " << p4.x << " " << p4.y << " " << img1((int)p4.x, (int)p4.y, i) << " " << img1((int)p3.x, (int)p3.y, i) 
-				 // << " " << img1(p2.x, p2.y, i) << " "  << img1(p1.x, p1.y, i) <<endl;
 				p5.rgb[i] = ((p4.x - _x)/(p4.x - p3.x)) * img1(p4.x, p4.y, i) + ((_x - p3.x)/(p4.x - p3.x)) * img1(p3.x, p3.y, i);
 				p6.rgb[i] = ((p2.x - _x)/(p2.x - p1.x)) * img1(p2.x, p2.y, i) + ((_x - p1.x)/(p2.x - p1.x)) * img1(p1.x, p1.y, i);
-				// cout<< "p5p6" << p5.rgb[i] << " " <<p6.rgb[i] << endl;
 				img3(x, y, i) = (int)( ((p5.y - _y)/(p5.y - p6.y)) * p5.rgb[i] + ((_y - p6.y)/(p5.y - p6.y)) * p6.rgb[i]);
-			// cout << img3(x, y, i) << " ";
 			}
 		}
-		// cout<<endl;
-			// if (y == 57 && x == 100)
-			// {
-			// 	cout << "rgb after : " <<  img3(x, y, 0) << " " 
-			// 		 <<img3(x, y, 1) << " " << img3(x, y, 2) <<endl;
-			// 	cout << "p1 " << p1.x << " " << p1.y << endl << img1(p1.x, p1.y, 0) << endl;
 
-			// 	cout << "p2 " << p2.x << " " << p2.y << endl << img1(p2.x, p2.y, 0) << " " 
-			// 		 << img1(p2.x, p2.y, 1) << " " << img1(p2.x, p2.y, 2) << endl;
-
-			// 	cout << "p3 " << p3.x << " " << p3.y << endl << img1(p3.x, p3.y, 0) << " " 
-			// 		 << img1(p3.x, p3.y, 1) << " " << img1(p3.x, p3.y, 2) << endl;
-			// 	cout << "p4 " << p4.x << " " << p4.y << endl << img1(p4.x, p4.y, 0) << " " 
-			// 		 << img1(p4.x, p4.y, 1) << " " << img1(p4.x, p4.y, 2) << endl;
-			// 	cout << "p5 " << p5.x << " " << p5.y << endl << p5.rgb[0] << " " 
-			// 		 << p5.rgb[1] << " " << p5.rgb[2] << endl;
-			// 	cout << "p6 " << p6.x << " " << p6.y << endl << p6.rgb[0] << " " 
-			// 		 << p6.rgb[1] << " " << p6.rgb[2] << endl;
-			// }
 	}
 
 	img1.display();
-	// img2.display();
 	img3.display();
+	img3.save("../src/4.bmp");
 	return 0;
 }

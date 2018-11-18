@@ -2,18 +2,27 @@
 #define IMAGEMORPHING_HPP
 
 #include <iostream>
-#include "CImg.h"
+#include <fstream>
+#include <vector>
+#include <sstream>
+// #include "CImg.h"
+#include "Delaunay.hpp"
 using namespace std;
 using namespace cimg_library;
 
+
+
 class ImageMorphing
 {
+private:
+	vector<Point> pset1;
+	vector<Point> pset2;
+
 public:
-	ImageMorphing();
-	~ImageMorphing();
+	ImageMorphing(string spath1, string spath2, string rpath);
 	CImg<unsigned char> scale(CImg<unsigned char>img, int w2, int h2);
-	void loadControlPoint(CImg<unsigned char>img, string path);
-	
+	vector<Point> loadControlPoint(CImg<unsigned char>img, string path);
+	Delaunay triangleMesh(CImg<unsigned char> img, vector<Point> pset);
 };
 
 
