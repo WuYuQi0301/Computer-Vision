@@ -90,7 +90,8 @@ extern bool GetMatrixInverse(double** src, int n, double** des) {
 	double flag = getA(src, n);
 	double** t = getAMatrix(MYDIM, MYDIM);
 	if (flag == 0) {
-		std::cout << "原矩阵行列式为0，无法求逆。请重新运行" << std::endl;
+		// std::cout << "矩阵行列原式为0，无法求逆。请重新运行" << std::endl;
+		std::cout << "error : A = 0" << std::endl;
 		return false;//如果算出矩阵的行列式为0，则不往下进行
 	}
 	else {
@@ -119,6 +120,7 @@ extern double** getInverse(double** matrix_before) {
 }
 
 extern double** getMatrixProduct(double** m1, double** m2) {
+	cout << "getMatrixProduct" <<endl;
 	double** ans = getAMatrix(MYDIM, MYDIM);
 	for (int i = 0; i<MYDIM; i++) {
 		for (int j = 0; j<MYDIM; j++) {
@@ -129,5 +131,14 @@ extern double** getMatrixProduct(double** m1, double** m2) {
 				ans[i][j] = 0;
 		}
 	}
+	for (int s = 0; s < 3; ++s)
+	{
+		for (int t = 0; t < 3; ++t)
+		{
+			cout << ans[s][t] << " ";
+		}
+		cout << endl;
+	}
+
 	return ans;
 }

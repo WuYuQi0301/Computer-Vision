@@ -40,9 +40,9 @@ ImageMorphing::ImageMorphing(string spath1, string spath2, string rpath)
 		exit(1);
 	}
 
-
 	for (int i = 0; i <= 10; ++i)
 	{
+		cout << "i : " << i << endl;
 		double a = i/(double)10;
 		vector<Point> curPSet;
 		CImg<unsigned char> midImg(img1.width(), img1.height(), 1, 3, 0);
@@ -50,29 +50,39 @@ ImageMorphing::ImageMorphing(string spath1, string spath2, string rpath)
 		for (unsigned int j = 0; j < pset1.size(); ++j)
 		{
 			double x, y;
-			x = (1 - a) * pset1[i].x + a * pset2[i].x;
-			y = (1 - a) * pset1[i].y + a * pset2[i].y;
+			x = (1 - a) * pset1[j].x + a * pset2[j].x;
+			y = (1 - a) * pset1[j].y + a * pset2[j].y;
+			cout << x << " " <<y <<endl;
 			Point temp(x, y);
 			curPSet.push_back(temp);
 		}
 		Delaunay tmesh = triangleMesh(midImg, curPSet);
 
 		//对于每一个三角形mesh， 计算它的映射矩阵
+		cout << "computing matrix.." << endl;
 		for (unsigned int j = 0; j < tmesh.tset.size(); ++j)
 		{
 			int* p = tmesh.tset[j].ep;
 			double **A = makeAMatrix(curPSet[p[0]], curPSet[p[1]], curPSet[p[2]]);
+
 			double **invA = getInverse(A);
+
 			double **U1 = makeAMatrix(pset1[p[0]], pset1[p[1]], pset1[p[2]]);
+
 			double **U2 = makeAMatrix(pset2[p[0]], pset2[p[1]], pset2[p[2]]);
-			tmesh.tset[i].m1 = getMatrixProduct(U1, invA);
-			tmesh.tset[i].m2 = getMatrixProduct(U2, invA);
+
+			if (invA == NULL)
+				exit(1);
+			tmesh.tset[j].m1 = getMatrixProduct(U1, invA);
+			tmesh.tset[j].m2 = getMatrixProduct(U2, invA);
+
 			deleteAMatrix(A);
 			deleteAMatrix(invA);
 			deleteAMatrix(U1);
 			deleteAMatrix(U2);
 		}
 
+		cout << "Morphing..." << endl;
 		cimg_forXY(midImg, x, y)
 		{
 			Point p(x, y);
@@ -85,11 +95,15 @@ ImageMorphing::ImageMorphing(string spath1, string spath2, string rpath)
 
 				double** M1 = tmesh.tset[j].m1;   //映射到原图的矩阵
 				double** M2 = tmesh.tset[j].m2;   //映射到目标图像的矩阵
-
+				// if (M1 != NULL) cout << "!null" << endl; 
+				// cout << "rgb1..." <<endl;
 				double u1 = M1[0][0] * x + M1[0][1] * y + M1[0][2];
 				double v1 = M1[1][0] * x + M1[1][1] * y + M1[1][2];
-				unsigned char* rgb1 = BilinearFilter(img1, u1, v1);    //后向双线性插值
+				// cout << "rgb1...2" <<endl;
 
+				unsigned char* rgb1 = BilinearFilter(img1, u1, v1);    //后向双线性插值
+			
+				// cout << "rgb2..." <<endl;
 				double u2 = M2[0][0] * x + M2[0][1] * y + M2[0][2];
 				double v2 = M2[1][0] * x + M2[1][1] * y + M2[1][2];
 				unsigned char* rgb2 = BilinearFilter(img2, u2, v2);    //后向双线性插值
@@ -98,7 +112,9 @@ ImageMorphing::ImageMorphing(string spath1, string spath2, string rpath)
 					midImg(x, y, k) = (1 - a) * rgb1[k] + a * rgb2[k];//颜色中间值
 				}
 
-				delete[] rgb1, rgb2;
+				delete[] rgb1;
+				delete[] rgb2;
+				delMats(tmesh);
 				break;
 			}
 		}
@@ -107,6 +123,17 @@ ImageMorphing::ImageMorphing(string spath1, string spath2, string rpath)
 		midImg.save((rpath+to_string(i)+".bmp").c_str());
 	}
 
+}
+
+void ImageMorphing::delMats(Delaunay &mesh)
+{
+	for (int i = 0; i < mesh.tset.size(); ++i)
+	{
+		if(mesh.tset[i].m1 != NULL)
+			deleteAMatrix(mesh.tset[i].m1);
+		if(mesh.tset[i].m2 != NULL)
+			deleteAMatrix(mesh.tset[i].m2);
+	}
 }
 
 unsigned char* ImageMorphing::BilinearFilter(CImg<unsigned char> &img1, double _x, double _y)
@@ -122,7 +149,6 @@ unsigned char* ImageMorphing::BilinearFilter(CImg<unsigned char> &img1, double _
 	if(!(p1.x < 0 || p1.x >= img1.width() || p4.x < 0 || p4.x >= img1.width()
 		|| p1.y < 0 || p1.y >= img1.height() || p4.y < 0 || p4.y >= img1.height()))
 	{
-
 		if (_x == p1.x)
 		{
 			if (_y == p1.y)
@@ -217,7 +243,7 @@ vector<Point> ImageMorphing::loadControlPoint(CImg<unsigned char>img, string pat
 
 	for (int i = 0; i < pset.size(); ++i)
 	{
-		cout << pset[i].x << " " << pset[i].y << endl;
+		// cout << pset[i].x << " " << pset[i].y << endl;
 		img(pset[i].x, pset[i].y, 0) = 255;
 		img(pset[i].x, pset[i].y, 1) = 0;
 		img(pset[i].x, pset[i].y, 2) = 0;
@@ -232,13 +258,17 @@ Delaunay ImageMorphing::triangleMesh(CImg<unsigned char> img, vector<Point> pset
 	Point p1(0, 0), p2(img.width()-1, 0), p3(img.width()-1, img.height()-1), p4(0, img.height()-1);
 	Delaunay tmesh(p1, p2, p3, p4);
 	//2、将点集中的散点依次插入，在三角形链表中找出外接圆包含插入点的三角形（称为该点的影响三角形
+	cout <<"size :" << pset.size() << endl;
 	for (int i = 0; i < pset.size(); ++i)
 	{
+		cout << pset[i].x << " " << pset[i].y<< endl;
 		tmesh.insertPoint(pset[i].x, pset[i].y);
 	}
+	// tmesh.delFrame();
 	//删除影响三角形的公共边，将插入点同影响三角形的全部顶点连接起来，完成一个点在Delaunay三角形链表中的插入。
 	//3、根据优化准则对局部新形成的三角形优化。将形成的三角形放入Delaunay三角形链表。
 	//4、循环执行上述第2步，直到所有散点插入完毕。
+	cout << tmesh.tset.size() << endl;
 
 	unsigned char blue[3] = {0, 0, 255};
 	for (int i = 0; i < tmesh.tset.size(); ++i)
@@ -247,6 +277,7 @@ Delaunay ImageMorphing::triangleMesh(CImg<unsigned char> img, vector<Point> pset
 		Point p5 = tmesh.pset[temp.ep[0]];
 		Point p6 = tmesh.pset[temp.ep[1]];
 		Point p7 = tmesh.pset[temp.ep[2]];
+		cout << p5.x <<" " << p5.y << " " <<  p6.x << " " <<  p6.y<< " " << p7.x <<" "<< p7.y << endl;
 		img.draw_line(p5.x, p5.y, p6.x, p6.y, blue);
 		img.draw_line(p6.x, p6.y, p7.x, p7.y, blue);
 		img.draw_line(p5.x, p5.y, p7.x, p7.y, blue);
@@ -254,3 +285,4 @@ Delaunay ImageMorphing::triangleMesh(CImg<unsigned char> img, vector<Point> pset
 	img.display();
 	return tmesh;
 }
+

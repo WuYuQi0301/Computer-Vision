@@ -25,7 +25,7 @@ public:
 	vector<Point> loadControlPoint(CImg<unsigned char>img, string path);
 	Delaunay triangleMesh(CImg<unsigned char> img, vector<Point> pset);
 	unsigned char* BilinearFilter(CImg<unsigned char> &src, double _x, double _y);
-
+	void delMats(Delaunay &mesh);
 };
 
 

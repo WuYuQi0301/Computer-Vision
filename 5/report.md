@@ -1,8 +1,6 @@
-HW5
+<center><font size = 6>HW5——Image warping </font></center>
 
-Image warping 
-
-几何变换
+## 几何变换
 
 全局变换
 
@@ -29,38 +27,9 @@ Image **Morphing**
 
 
 
-| 标记   | 1        | 2    |
-| ------ | -------- | ---- |
-| 顶     | 242,268  |      |
-| 左额角 |          |      |
-| 左太阳 | 116,273  |      |
-| 左耳   | 114.352  |      |
-| 左颊   | 130,430, |      |
-|        | 180,490  |      |
-| 下巴   | 248,490  |      |
-|        | 157,107  |      |
-| 右颊   | 363,430  |      |
-| 右耳   | 378,344  |      |
-| 右太阳 | 377,268  |      |
-| 右额角 |          |      |
-| 左眉头 | 232,302  |      |
-| 左眉峰 | 168,288  |      |
-| 左眼   | 186,321  |      |
-| 右眉头 | 274,305  |      |
-| 右眉峰 | 329,285  |      |
-| 右眼   | 306,322  |      |
-| 鼻梁   | 250,328  |      |
-| 鼻尖   | 249,380  |      |
-| 左鼻孔 | 226,396  |      |
-| 右鼻孔 | 270,397  |      |
-| 唇峰   | 248,426  |      |
-| 唇1    | 185,427  |      |
-| 唇2    | 212.453  |      |
-| 唇3    | 245,467  |      |
-| 唇4    | 290,449  |      |
-| 唇5    | 310,428  |      |
-
 #### 三角剖分算法
+
+#### 定义
 
 > 【定义】Delaunay边：假设E中的一条边e（两个端点为a,b），e
 >
@@ -80,7 +49,7 @@ Image **Morphing**
 >
 > 3.如果在，修正对角线即将对角线对调，即完成局部优化过程的处理。
 
-准则:
+#### 准则:
 
 [![img](https://gss1.bdstatic.com/-vo3dSag_xI4khGkpoWK1HF6hhy/baike/s%3D220/sign=b80ab1c2912397ddd2799f066982b216/2cf5e0fe9925bc31815289bd5edf8db1cb13708c.jpg)](https://baike.baidu.com/pic/Delaunay%E4%B8%89%E8%A7%92%E5%89%96%E5%88%86%E7%AE%97%E6%B3%95/3779918/0/bd7faf35eec83f9ea61e12ed?fr=lemma&ct=single)
 
@@ -92,7 +61,7 @@ Image **Morphing**
 
 [![img](https://gss1.bdstatic.com/-vo3dSag_xI4khGkpoWK1HF6hhy/baike/s%3D250/sign=44260e0eb051f819f525044feab44a76/42166d224f4a20a43b17b4e290529822720ed08e.jpg)](https://baike.baidu.com/pic/Delaunay%E4%B8%89%E8%A7%92%E5%89%96%E5%88%86%E7%AE%97%E6%B3%95/3779918/0/504ec7f9aa1edd4c252df2ef?fr=lemma&ct=single)
 
-特性:
+#### 特性:
 
 以下是Delaunay剖分所具备的优异特性：
 
@@ -108,13 +77,13 @@ Image **Morphing**
 
 6.具有[凸多边形](https://baike.baidu.com/item/%E5%87%B8%E5%A4%9A%E8%BE%B9%E5%BD%A2)的外壳：三角网最外层的边界形成一个凸多边形的外壳。
 
-
+#### 算法
 
 1. 逐点插入
 
    基本原理：首先建立一个大的三角形或者多边形使其能够吧所有数据点包围起来。向其中插入一点，该点与包含它的三角形三个顶点相连，形成三个新三角形；对四个点逐个进行空外接圆检测，并LOP局部优化。
 
-2. Watson算法基本步骤
+2. **Watson**算法基本步骤
 
    1. 构造一个包含所有散点的超级三角形，放入三角形列表；
    2. 插入一个散点，在三角形链表中找出*外接圆*包含插入点的三角形（影响三角形），删除影响三角形的公共边，将插入点同影响三角形的全部定点连接起来。
@@ -122,7 +91,9 @@ Image **Morphing**
 
 ### 仿射变换
 
-对于每一个三角形
+对于每一个三角形计算：
+
+以原图像三点得到的U1
 $$
 U1 = \begin{bmatrix}
  pset1[k].x&pset1[k].x  &pset1[k].x \\ 
@@ -130,7 +101,7 @@ U1 = \begin{bmatrix}
  1& 1 & 1
 \end{bmatrix}
 $$
-
+以目标图像得到的U2
 $$
 U2 = \begin{bmatrix}
  pset2[k].x&pset2[k].x  &pset2[k].x \\ 
@@ -138,7 +109,7 @@ U2 = \begin{bmatrix}
  1& 1 & 1
 \end{bmatrix}
 $$
-
+以中间图像得到的A
 $$
 A = \begin{bmatrix}
  p1.x&p2.x  &p3.x \\ 
@@ -146,12 +117,12 @@ A = \begin{bmatrix}
  1& 1 & 1
 \end{bmatrix}
 $$
-
+A的逆
 $$
 A^{-1}
 $$
 
-
+映射矩阵
 $$
 m1 = U1*A^{-1}
 $$
@@ -159,4 +130,48 @@ $$
 $$
 m2 = U2*A^{-1}
 $$
+后向映射到原图像
+$$
+u1 = m1[0][0] * x + m1[0][1] * y + m1[0][2];
+$$
 
+$$
+v1 = m1[1][0] * x + m1[1][1] * y + m1[1][2];
+$$
+后向映射到目标图像
+$$
+u2 = m2[1][0] * x + m2[1][1] * y + m2[1][2];
+$$
+
+$$
+v2 = m2[1][0] * x + m2[1][1] * y + m2[1][2];
+$$
+分别做双线性插值得到后向映射的点在两图中的rgb值，用
+$(1-\alpha ) * rgb1 + \alpha * rgb2$得到中间图像某位置的像素值。
+
+
+### 测试结果
+
+![mash](C:\Users\Yuki\Desktop\CV\5\result\mash.JPG)
+
+![0](C:\Users\Yuki\Desktop\CV\5\result\0.bmp)
+
+![1](C:\Users\Yuki\Desktop\CV\5\result\1.bmp)
+
+![2](C:\Users\Yuki\Desktop\CV\5\result\2.bmp)
+
+![3](C:\Users\Yuki\Desktop\CV\5\result\3.bmp)
+
+![4](C:\Users\Yuki\Desktop\CV\5\result\4.bmp)
+
+![5](C:\Users\Yuki\Desktop\CV\5\result\5.bmp)
+
+![6](C:\Users\Yuki\Desktop\CV\5\result\6.bmp)
+
+![7](C:\Users\Yuki\Desktop\CV\5\result\7.bmp)
+
+![8](C:\Users\Yuki\Desktop\CV\5\result\8.bmp)
+
+![9](C:\Users\Yuki\Desktop\CV\5\result\9.bmp)
+
+![10](C:\Users\Yuki\Desktop\CV\5\result\10.bmp)

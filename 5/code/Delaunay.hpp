@@ -13,7 +13,7 @@ struct Edge           //边
 	int leftEnd;  //端点在point set中的下标
 	int rightEnd; 
 	int count;         //以该线段为边的三角形个数
-	Edge(int _l, int _r, int _c)
+	Edge(int _l = 0, int _r = 0, int _c = 0)
 	{
 		leftEnd = _l;
 		rightEnd = _r;
@@ -36,8 +36,10 @@ class Delaunay
 {
 public:
 	Delaunay(Point p1, Point p2, Point p3, Point p4);  //初始化边set和三角形set
-
+	~Delaunay();
+	
 	bool insertPoint(double _x, double _y);
+	void delFrame();
 
 	vector<Point> pset;    //所有点的集合
 	vector<Edge> eset;     //所有边的集合

@@ -6,6 +6,7 @@
 #include <math.h>
 #include <string.h>
 #include "Point.hpp"
+using namespace std;
 
 #define MYDIM 3    //测试矩阵维数定义
 

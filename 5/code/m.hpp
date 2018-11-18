@@ -36,10 +36,8 @@ public:
 	Delaunay doTriangle(CImg<unsigned char> &img, std::vector<Point> points);
 };
 
-// Dlib��ȡ�����㲢д���ļ�
 void wtFeaturesToFile(string, string);
 
-// ���ļ���ȡ������
 std::vector<Point> getFeaturePointsFromTxt(CImg<unsigned char> &img, string filename);
 
 #endif

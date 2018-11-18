@@ -19,6 +19,11 @@ Delaunay::Delaunay(Point p1, Point p2, Point p3, Point p4)  //初始化边set和
 	createTriangle(0, 1, 2);
 	createTriangle(0, 2, 3);
 }
+Delaunay::~Delaunay()
+{
+
+}
+
 bool Delaunay::insertPoint(double _x, double _y)
 {
 	vector<Edge> BoundEdges;
@@ -68,7 +73,6 @@ void Delaunay::computeCentre(double &x_centre,double &y_centre,double &radius,in
 	double p = (a + b + c) / 2;
 	double S = sqrt(p * (p-a) * (p-b) * (p-c)); //海伦公式
 	radius = a * b * c / (4 * S);
- 
 	//求外接圆圆心
 	double t1 = x1*x1 + y1*y1;
 	double t2 = x2*x2 + y2*y2;
@@ -158,7 +162,36 @@ void Delaunay::delTriangle(int n, vector<Edge> &BoundEdges)
 	}
 	tset.erase(tset.begin() + n);
 }
-
+void Delaunay::delFrame()
+{
+	vector<Edge> BoundEdges;
+	for (int i = 0; i<4; i++) pset.erase(pset.begin());
+	for (int i = 0; i<(int)tset.size(); i++)
+	{
+		if (tset[i].ep[0] == 0 || tset[i].ep[0] == 1 || tset[i].ep[0] == 2 || tset[i].ep[0] == 3)
+		{
+			delTriangle(i, BoundEdges);
+			BoundEdges.resize(0);
+			i--;
+		}
+		else
+		{
+			for (int j = 0; j<3; j++)
+			{
+				tset[i].ep[j] -= 4;
+				tset[i].edge[j].leftEnd -= 4;
+				tset[i].edge[j].rightEnd -= 4;
+			}
+		}
+	}
+	for (int i = 0; i < 4; i++) 
+		eset.erase(eset.begin());
+	for (int i = 0; i < (int)eset.size(); i++)
+	{
+		eset[i].leftEnd -= 4;
+		eset[i].rightEnd -= 4;
+	}
+}
 void Delaunay::sort(int& a, int& b, int& c)
 {
 	if(a > b)
