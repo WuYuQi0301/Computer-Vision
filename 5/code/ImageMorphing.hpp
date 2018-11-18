@@ -7,6 +7,7 @@
 #include <sstream>
 // #include "CImg.h"
 #include "Delaunay.hpp"
+#include "Matrix.h"
 using namespace std;
 using namespace cimg_library;
 

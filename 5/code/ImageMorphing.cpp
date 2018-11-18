@@ -1,5 +1,30 @@
 #include "ImageMorphing.hpp"
 
+
+bool SameSide(const Point &A, const Point &B, const Point &C, const Point &P) {
+	Point AB = B - A;
+	Point AC = C - A;
+	Point AP = P - A;
+
+
+	double u = (AB.Dot(AB)*AP.Dot(AC) - AC.Dot(AB)*AP.Dot(AB)) / (AC.Dot(AC)*AB.Dot(AB) - AC.Dot(AB)*AB.Dot(AC));
+	double v = (AC.Dot(AC)*AP.Dot(AB) - AC.Dot(AB)*AP.Dot(AC)) / (AC.Dot(AC)*AB.Dot(AB) - AC.Dot(AB)*AB.Dot(AC));
+
+	if(u >= 0 && u <= 1 && v >= 0 && v <= 1 && (u+v) <= 1)
+		return true;
+	else return false;
+}
+
+// Same side method
+// Determine whether point P in triangle ABC
+// 当选择某一条边时，需验证点P与该边所对的点在同一侧
+bool PointinTriangle(const Point &A, const Point &B, const Point &C, const Point &P) {
+	return SameSide(A, B, C, P) &&
+		SameSide(B, C, A, P) &&
+		SameSide(C, A, B, P);
+}
+
+
 ImageMorphing::ImageMorphing(string spath1, string spath2, string rpath)
 {
 	CImg<unsigned char> img1(spath1.c_str()), img2(spath2.c_str());
@@ -12,7 +37,7 @@ ImageMorphing::ImageMorphing(string spath1, string spath2, string rpath)
 	if (pset1.size() != pset2.size() ||pset1.empty() || pset2.empty())
 	{
 		cout << "pset error" << endl;
-		continue;
+		exit(1);
 	}
 
 
@@ -35,11 +60,11 @@ ImageMorphing::ImageMorphing(string spath1, string spath2, string rpath)
 		//对于每一个三角形mesh， 计算它的映射矩阵
 		for (unsigned int j = 0; j < tmesh.tset.size(); ++j)
 		{
-			int* p = tmesh.tset.ep;
+			int* p = tmesh.tset[j].ep;
 			double **A = makeAMatrix(curPSet[p[0]], curPSet[p[1]], curPSet[p[2]]);
 			double **invA = getInverse(A);
-			double **U1 = makeAMatrix(pset1[v[0]], pset1[v[1]], pset1[v[2]]);
-			double **U2 = makeAMatrix(pset2[v[0]], pset2[v[1]], pset2[v[2]]);
+			double **U1 = makeAMatrix(pset1[p[0]], pset1[p[1]], pset1[p[2]]);
+			double **U2 = makeAMatrix(pset2[p[0]], pset2[p[1]], pset2[p[2]]);
 			tmesh.tset[i].m1 = getMatrixProduct(U1, invA);
 			tmesh.tset[i].m2 = getMatrixProduct(U2, invA);
 			deleteAMatrix(A);
@@ -48,10 +73,10 @@ ImageMorphing::ImageMorphing(string spath1, string spath2, string rpath)
 			deleteAMatrix(U2);
 		}
 
-		cimg_forXY(img, x, y)
+		cimg_forXY(midImg, x, y)
 		{
 			Point p(x, y);
-			for (int j = 0; j < ; ++j)
+			for (unsigned int j = 0; j < tmesh.tset.size(); ++j)
 			{
 				int* endPoint = tmesh.tset[j].ep;
 				//该点是否在当前三角形内？
@@ -70,7 +95,7 @@ ImageMorphing::ImageMorphing(string spath1, string spath2, string rpath)
 				unsigned char* rgb2 = BilinearFilter(img2, u2, v2);    //后向双线性插值
 
 				for (int k = 0; k < 3; k++) {
-					img(x, y, k) = (1 - a) * rgb1[k] + a * rgb2[k];//颜色中间值
+					midImg(x, y, k) = (1 - a) * rgb1[k] + a * rgb2[k];//颜色中间值
 				}
 
 				delete[] rgb1, rgb2;
@@ -78,8 +103,8 @@ ImageMorphing::ImageMorphing(string spath1, string spath2, string rpath)
 			}
 		}
 
-		img.display();
-		img.save((rpath+str(i)+".bmp").c_str());
+		midImg.display();
+		midImg.save((rpath+to_string(i)+".bmp").c_str());
 	}
 
 }
@@ -88,60 +113,60 @@ unsigned char* ImageMorphing::BilinearFilter(CImg<unsigned char> &img1, double _
 {
 	unsigned char* rgb3 = new unsigned char[3];
 	for (int i = 0; i < 3; ++i)
-		rgb[i] = 0;
+		rgb3[i] = 0;
 
 	Point p1(floor(_x), floor(_y)), p2(ceil(_x), floor(_y));
 	Point p3(floor(_x), ceil(_y)), p4(ceil(_x), ceil(_y));
 	Point p5(_x, floor(_y)), p6(_x, ceil(_y));
 
-	if(p1.x < 0 || p1.x >= img1.width() || p4.x < 0 || p4.x >= img1.width()
-		|| p1.y < 0 || p1.y >= img1.height() || p4.y < 0 || p4.y >= img1.height())
+	if(!(p1.x < 0 || p1.x >= img1.width() || p4.x < 0 || p4.x >= img1.width()
+		|| p1.y < 0 || p1.y >= img1.height() || p4.y < 0 || p4.y >= img1.height()))
 	{
-		continue;
-	}
-	if (_x == p1.x)
-	{
-		if (_y == p1.y)
+
+		if (_x == p1.x)
 		{
-			for (int i = 0; i < 3; ++i)
-				rgb3[i] = img1(p1.x, p1.y, i);
-		} else {  //p1p3 y插值一次 
-			for (int i = 0; i < 3; ++i)
-				rgb3[i] = ((_y - p1.y)/(p3.y-p1.y))*img1(p1.x, p1.y, i) 
-								 + ((p3.y-_y)/(p3.y-p1.y))*img1(p3.x, p3.y, i);
+			if (_y == p1.y)
+			{
+				for (int i = 0; i < 3; ++i)
+					rgb3[i] = img1(p1.x, p1.y, i);
+			} else {  //p1p3 y插值一次 
+				for (int i = 0; i < 3; ++i)
+					rgb3[i] = ((_y - p1.y)/(p3.y-p1.y))*img1(p1.x, p1.y, i) 
+									 + ((p3.y-_y)/(p3.y-p1.y))*img1(p3.x, p3.y, i);
+			}
 		}
-	}
-	else if (_x == p2.x)
-	{
-		if( _y == p2.y)
+		else if (_x == p2.x)
 		{
-			for (int i = 0; i < 3; ++i)
-				rgb3[i] = img1(p2.x, p2.y, i);
-		} else {  //p2p4 y插值一次
-			for (int i = 0; i < 3; ++i)
-				rgb3[i] = ((_y-p2.y)/(p4.y-p2.y))*img1(p2.x, p2.y, i) 
-							  + ((p4.y-_y)/(p4.y-p2.y))*img1(p4.x, p4.y, i);
+			if( _y == p2.y)
+			{
+				for (int i = 0; i < 3; ++i)
+					rgb3[i] = img1(p2.x, p2.y, i);
+			} else {  //p2p4 y插值一次
+				for (int i = 0; i < 3; ++i)
+					rgb3[i] = ((_y-p2.y)/(p4.y-p2.y))*img1(p2.x, p2.y, i) 
+								  + ((p4.y-_y)/(p4.y-p2.y))*img1(p4.x, p4.y, i);
+			}
 		}
-	}
-	else if (_y == p1.y)  // p1p2 x插值一次
-	{
-		for (int i = 0; i < 3; ++i)
-			rgb3[i] = ((_x-p1.x)/(p2.x-p1.x))*img1(p1.x, p1.y, i) 
-						  + ((p2.x-_x)/(p2.x-p1.x))*img1(p2.x, p2.y, i);
-	}
-	else if (_y == p3.y)  // p3p4 x 插值一次
- 	{
-		for (int i = 0; i < 3; ++i)
-			rgb3[i] = ((_x-p3.x)/(p4.x-p3.x))*img1(p3.x, p3.y, i) 
-						  + ((p4.x-_x)/(p4.x-p3.x))*img1(p4.x, p4.y, i);
-	}
-	else        //并不落在任何两非对角点连成的直线上
-	{
-		for (int i = 0; i < 3; ++i)
+		else if (_y == p1.y)  // p1p2 x插值一次
 		{
-			p5.rgb[i] = ((p4.x - _x)/(p4.x - p3.x)) * img1(p4.x, p4.y, i) + ((_x - p3.x)/(p4.x - p3.x)) * img1(p3.x, p3.y, i);
-			p6.rgb[i] = ((p2.x - _x)/(p2.x - p1.x)) * img1(p2.x, p2.y, i) + ((_x - p1.x)/(p2.x - p1.x)) * img1(p1.x, p1.y, i);
-			rgb3[i] = (int)( ((p5.y - _y)/(p5.y - p6.y)) * p5.rgb[i] + ((_y - p6.y)/(p5.y - p6.y)) * p6.rgb[i]);
+			for (int i = 0; i < 3; ++i)
+				rgb3[i] = ((_x-p1.x)/(p2.x-p1.x))*img1(p1.x, p1.y, i) 
+							  + ((p2.x-_x)/(p2.x-p1.x))*img1(p2.x, p2.y, i);
+		}
+		else if (_y == p3.y)  // p3p4 x 插值一次
+	 	{
+			for (int i = 0; i < 3; ++i)
+				rgb3[i] = ((_x-p3.x)/(p4.x-p3.x))*img1(p3.x, p3.y, i) 
+							  + ((p4.x-_x)/(p4.x-p3.x))*img1(p4.x, p4.y, i);
+		}
+		else        //并不落在任何两非对角点连成的直线上
+		{
+			for (int i = 0; i < 3; ++i)
+			{
+				p5.rgb[i] = ((p4.x - _x)/(p4.x - p3.x)) * img1(p4.x, p4.y, i) + ((_x - p3.x)/(p4.x - p3.x)) * img1(p3.x, p3.y, i);
+				p6.rgb[i] = ((p2.x - _x)/(p2.x - p1.x)) * img1(p2.x, p2.y, i) + ((_x - p1.x)/(p2.x - p1.x)) * img1(p1.x, p1.y, i);
+				rgb3[i] = (int)( ((p5.y - _y)/(p5.y - p6.y)) * p5.rgb[i] + ((_y - p6.y)/(p5.y - p6.y)) * p6.rgb[i]);
+			}
 		}
 	}
 	return rgb3;
