@@ -1,0 +1,1864 @@
+
+<!-- saved from url=(0090)https://courses.cs.washington.edu/courses/cse576/08sp/projects/project2/project2.html#todo -->
+<html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40" xmlns:ns0="http://schemas.microsoft.com/office/2004/12/omml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="ProgId" content="Word.Document">
+<meta name="Generator" content="Microsoft Word 11">
+<meta name="Originator" content="Microsoft Word 11">
+<link rel="File-List" href="https://courses.cs.washington.edu/courses/cse576/08sp/projects/project2/project2_files/filelist.xml">
+<link rel="Edit-Time-Data" href="https://courses.cs.washington.edu/courses/cse576/08sp/projects/project2/project2_files/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>CSE576 Spring 2008 Project 2</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Template>Normal</o:Template>
+  <o:LastAuthor>jhchen</o:LastAuthor>
+  <o:Revision>52</o:Revision>
+  <o:TotalTime>132</o:TotalTime>
+  <o:Created>2002-01-11T08:49:00Z</o:Created>
+  <o:LastSaved>2008-04-18T00:20:00Z</o:LastSaved>
+  <o:Pages>6</o:Pages>
+  <o:Words>3268</o:Words>
+  <o:Characters>18629</o:Characters>
+  <o:Company>CSE-UW</o:Company>
+  <o:Lines>155</o:Lines>
+  <o:Paragraphs>43</o:Paragraphs>
+  <o:CharactersWithSpaces>21854</o:CharactersWithSpaces>
+  <o:Version>11.9999</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:Zoom>125</w:Zoom>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:Compatibility>
+   <w:BreakWrappedTables/>
+   <w:SnapToGridInCell/>
+   <w:WrapTextWithPunct/>
+   <w:UseAsianBreakRules/>
+   <w:DontGrowAutofit/>
+   <w:UseFELayout/>
+   <w:SplitPgBreakAndParaMark/>
+   <w:DontVertAlignCellWithSp/>
+   <w:DontBreakConstrainedForcedTables/>
+   <w:DontVertAlignInTxbx/>
+   <w:Word11KerningPairs/>
+   <w:CachedColBalance/>
+  </w:Compatibility>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+  <w:TrackMoves>false</w:TrackMoves>
+  <w:TrackFormatting/>
+  <w:DoNotPromoteQF/>
+  <w:LidThemeOther>EN-US</w:LidThemeOther>
+  <w:LidThemeAsian>X-NONE</w:LidThemeAsian>
+  <w:LidThemeComplexScript>X-NONE</w:LidThemeComplexScript>
+  <m:mathPr>
+   <m:mathFont m:val="Cambria Math"/>
+   <m:brkBin m:val="before"/>
+   <m:brkBinSub m:val="--"/>
+   <m:smallFrac m:val="off"/>
+   <m:dispDef/>
+   <m:lMargin m:val="0"/>
+   <m:rMargin m:val="0"/>
+   <m:defJc m:val="centerGroup"/>
+   <m:wrapIndent m:val="1440"/>
+   <m:intLim m:val="subSup"/>
+   <m:naryLim m:val="undOvr"/>
+  </m:mathPr>
+ </w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" LatentStyleCount="156">
+ </w:LatentStyles>
+</xml><![endif]-->
+<style>
+<!--p.MSONORMAL
+	{mso-style-unhide:no;
+	mso-style-qformat:yes;}
+li.MSONORMAL
+	{mso-style-unhide:no;
+	mso-style-qformat:yes;}
+div.MSONORMAL
+	{mso-style-unhide:no;
+	mso-style-qformat:yes;}
+h2
+	{mso-style-unhide:no;
+	mso-style-qformat:yes;}
+h3
+	{mso-style-unhide:no;
+	mso-style-qformat:yes;}
+h4
+	{mso-style-unhide:no;
+	mso-style-qformat:yes;}
+a:link
+	{mso-style-unhide:no;}
+span.MSOHYPERLINK
+	{mso-style-unhide:no;}
+a:visited
+	{mso-style-unhide:no;}
+span.MSOHYPERLINKFOLLOWED
+	{mso-style-unhide:no;}
+p
+	{mso-style-unhide:no;}
+p.MSOACETATE
+	{mso-style-unhide:no;}
+li.MSOACETATE
+	{mso-style-unhide:no;}
+div.MSOACETATE
+	{mso-style-unhide:no;}
+span.HEADING2CHAR
+	{mso-style-unhide:no;}
+span.HEADING3CHAR
+	{mso-style-unhide:no;
+	mso-ascii-theme-font:major-latin;
+	mso-fareast-theme-font:major-fareast;
+	mso-hansi-theme-font:major-latin;
+	mso-bidi-theme-font:major-bidi;
+	mso-themecolor:accent1;}
+span.HEADING4CHAR
+	{mso-style-unhide:no;
+	mso-ascii-theme-font:major-latin;
+	mso-fareast-theme-font:major-fareast;
+	mso-hansi-theme-font:major-latin;
+	mso-bidi-theme-font:major-bidi;
+	mso-themecolor:accent1;}
+span.BALLOONTEXTCHAR
+	{mso-style-unhide:no;}
+.MSOCHPDEFAULT
+	{mso-default-props:yes;}
+table.MSONORMALTABLE
+	{mso-style-priority:99;
+	mso-style-qformat:yes;}
+
+ /* Font Definitions */
+ @font-face
+	{font-family:PMingLiU;
+	panose-1:2 2 3 0 0 0 0 0 0 0;
+	mso-font-alt:\65B0\7D30\660E\9AD4;
+	mso-font-charset:136;
+	mso-generic-font-family:roman;
+	mso-font-pitch:variable;
+	mso-font-signature:3 137232384 22 0 1048577 0;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:1627421319 -2147483648 8 0 66047 0;}
+@font-face
+	{font-family:"\@PMingLiU";
+	panose-1:2 2 3 0 0 0 0 0 0 0;
+	mso-font-charset:136;
+	mso-generic-font-family:roman;
+	mso-font-pitch:variable;
+	mso-font-signature:3 137232384 22 0 1048577 0;}
+@font-face
+	{font-family:Cambria;
+	panose-1:2 4 5 3 5 4 6 3 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-pitch:variable;
+	mso-font-signature:-1610611985 1073741899 0 0 159 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+h2
+	{mso-style-link:"Heading 2 Char";
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:2;
+	font-size:18.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:PMingLiU;
+	font-weight:bold;}
+h3
+	{mso-style-link:"Heading 3 Char";
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:3;
+	font-size:13.5pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:PMingLiU;
+	font-weight:bold;}
+h4
+	{mso-style-link:"Heading 4 Char";
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:4;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:PMingLiU;
+	font-weight:bold;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+p
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{mso-style-link:"Balloon Text Char";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:8.0pt;
+	font-family:Tahoma;
+	mso-fareast-font-family:"Times New Roman";}
+span.Heading2Char
+	{mso-style-name:"Heading 2 Char";
+	mso-style-noshow:yes;
+	mso-style-locked:yes;
+	mso-style-link:"Heading 2";
+	mso-ansi-font-size:18.0pt;
+	mso-bidi-font-size:18.0pt;
+	font-family:PMingLiU;
+	mso-ascii-font-family:PMingLiU;
+	mso-fareast-font-family:PMingLiU;
+	mso-hansi-font-family:PMingLiU;
+	mso-ansi-language:EN-US;
+	mso-fareast-language:ZH-CN;
+	mso-bidi-language:AR-SA;
+	font-weight:bold;}
+span.Heading3Char
+	{mso-style-name:"Heading 3 Char";
+	mso-style-locked:yes;
+	mso-style-link:"Heading 3";
+	mso-ansi-font-size:12.0pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:Cambria;
+	mso-ascii-font-family:Cambria;
+	mso-fareast-font-family:"Times New Roman";
+	mso-hansi-font-family:Cambria;
+	mso-bidi-font-family:"Times New Roman";
+	color:#4F81BD;
+	font-weight:bold;}
+span.Heading4Char
+	{mso-style-name:"Heading 4 Char";
+	mso-style-locked:yes;
+	mso-style-link:"Heading 4";
+	mso-ansi-font-size:12.0pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:Cambria;
+	mso-ascii-font-family:Cambria;
+	mso-fareast-font-family:"Times New Roman";
+	mso-hansi-font-family:Cambria;
+	mso-bidi-font-family:"Times New Roman";
+	color:#4F81BD;
+	font-weight:bold;
+	font-style:italic;}
+span.BalloonTextChar
+	{mso-style-name:"Balloon Text Char";
+	mso-style-locked:yes;
+	mso-style-link:"Balloon Text";
+	mso-ansi-font-size:8.0pt;
+	mso-bidi-font-size:8.0pt;
+	font-family:Tahoma;
+	mso-ascii-font-family:Tahoma;
+	mso-hansi-font-family:Tahoma;
+	mso-bidi-font-family:Tahoma;}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:35.4pt;
+	mso-footer-margin:35.4pt;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ @list l0
+	{mso-list-id:31082976;
+	mso-list-template-ids:-1459316826;}
+@list l0:level1
+	{mso-level-start-at:3;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1
+	{mso-list-id:327096576;
+	mso-list-template-ids:-2102470524;}
+@list l1:level1
+	{mso-level-start-at:2;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2
+	{mso-list-id:512501354;
+	mso-list-template-ids:-1149339356;}
+@list l2:level1
+	{mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3
+	{mso-list-id:559446102;
+	mso-list-template-ids:-1219100630;}
+@list l3:level1
+	{mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l3:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4
+	{mso-list-id:580720609;
+	mso-list-template-ids:-1563534196;}
+@list l4:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l4:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l5
+	{mso-list-id:908810330;
+	mso-list-template-ids:2098617272;}
+@list l5:level1
+	{mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l5:level2
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l5:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l5:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l5:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l5:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l5:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l5:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l5:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l6
+	{mso-list-id:1088846117;
+	mso-list-template-ids:321257568;}
+@list l6:level1
+	{mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l6:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l6:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l6:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l6:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l6:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l6:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l6:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l6:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l7
+	{mso-list-id:1302538090;
+	mso-list-template-ids:-1993150794;}
+@list l7:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l7:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l7:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l7:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l7:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l7:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l7:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l7:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l7:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l8
+	{mso-list-id:1308168286;
+	mso-list-template-ids:1190039410;}
+@list l8:level1
+	{mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l8:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l8:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l8:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l8:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l8:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l8:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l8:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l8:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l9
+	{mso-list-id:1489902184;
+	mso-list-template-ids:1621274238;}
+@list l9:level1
+	{mso-level-start-at:3;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l9:level2
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l9:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l9:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l9:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l9:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l9:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l9:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l9:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l10
+	{mso-list-id:1654987285;
+	mso-list-template-ids:2047883858;}
+@list l10:level1
+	{mso-level-start-at:2;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l10:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l10:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l10:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l10:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l10:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l10:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l10:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l10:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l11
+	{mso-list-id:1837071100;
+	mso-list-template-ids:-664766692;}
+@list l11:level1
+	{mso-level-start-at:2;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l11:level2
+	{mso-level-start-at:3;
+	mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l11:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l11:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l11:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l11:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l11:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l11:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l11:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l12
+	{mso-list-id:1951860980;
+	mso-list-template-ids:1321092590;}
+@list l12:level1
+	{mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l12:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l12:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l12:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l12:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l12:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l12:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l12:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l12:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l13
+	{mso-list-id:2119638839;
+	mso-list-template-ids:-1934040174;}
+@list l13:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l13:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l13:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l13:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l13:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l13:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l13:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l13:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l13:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:#0400;
+	mso-fareast-language:#0400;
+	mso-bidi-language:#0400;}
+</style>
+<![endif]-->
+<link rel="dataStoreItem" href="https://courses.cs.washington.edu/courses/cse576/08sp/projects/project2/project2_files/item0006.xml" target="project2_files/props0007.xml">
+<link rel="themeData" href="https://courses.cs.washington.edu/courses/cse576/08sp/projects/project2/project2_files/themedata.thmx">
+<link rel="colorSchemeMapping" href="https://courses.cs.washington.edu/courses/cse576/08sp/projects/project2/project2_files/colorschememapping.xml">
+<!-- saved from url=(0090)http://www.cs.washington.edu/education/courses/455/03wi/projects/project1/web/project1.htm --><!-- saved from url=(0091)http://www.cs.washington.edu/education/courses/cse455/02wi/projects/project0/project0.htm --><!-- saved from url=(0056)file://\\seitz-pc\seitz\class\455\project0\writeup.htm --><!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1026"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+<link type="text/css" rel="stylesheet" href="chrome-extension://ghihpjhpgdepnohngpgfcmcijmkggpaf/style.css"><script type="text/javascript" charset="utf-8" src="chrome-extension://ghihpjhpgdepnohngpgfcmcijmkggpaf/js/page_context.js"></script></head>
+
+<body lang="EN-US" link="blue" vlink="blue" style="tab-interval:.5in" screen_capture_injected="true">
+
+<div class="Section1">
+
+<div style="z-index:1">
+
+<div class="MsoNormal" align="center" style="text-align:center">
+
+<hr size="2" width="100%" align="center">
+
+</div>
+
+<h2>Computer Vision (CSE 576), <span class="GramE">Spring</span> 2008</h2>
+
+<h2>Project 2:&nbsp; <span class="SpellE">Autostitch</span></h2>
+
+<p><b>Assigned</b>:&nbsp; Wednesday, April 16, 2008<span style="color:red"><br>
+<b>Due:</b>&nbsp; Tuesday, April 29, 2008 (by 11:59pm<span class="GramE">)</span><br>
+<b>Artifact Due:</b> &nbsp;Thursday, May 1, 2008 (by 11:59pm)</span></p>
+
+<p><b><span style="font-size:13.5pt;color:red">***Sign-up for Panorama kit</span></b>
+<span style="font-size:13.5pt"><a href="http://www.cs.washington.edu/htbin-post/admin/preserve.cgi/www/education/reserve/cse576/panorama">here</a></span>.
+&nbsp;</p>
+
+<div class="MsoNormal" align="center" style="text-align:center">
+
+<hr size="2" width="100%" align="center">
+
+</div>
+
+<h2>Overall Synopsis</h2>
+
+<p>In this project, you will implement a system to combine a series of
+photographs into a 360<span style="font-family:Symbol">�</span> panorama (see
+panorama below). Your software will detect discriminating features in the
+images, find the best matching features in the other images, automatically
+align the photographs (determine their overlap and relative positions) and then
+blend the resulting photos into a single seamless panorama. You will use your
+project 1 code (i.e., Features.exe)<span style="mso-spacerun:yes">� </span>to
+detect discriminating features in the images, find the best matching features
+in the other images and so you main focus here is to automatically align the
+photographs (determine their overlap and relative positions) and then blend the
+resulting photos into a single seamless panorama. You will then be able to view
+the resulting panorama inside an interactive Web viewer. To start your project,
+you will be supplied with some test images and skeleton code you can use as the
+basis of your project and <a href="http://www.cs.washington.edu/education/courses/cse576/05sp/projects/proj2/panoviewing.htm">instructions
+on how to use the viewer</a>.</p>
+
+<p class="MsoNormal" align="center" style="text-align:center"><a href="http://www.cs.washington.edu/education/courses/455/04wi/votes/pano_artifacts/lorenm/index.html"><span style="mso-no-proof:yes;text-decoration:none;text-underline:none"><img border="0" width="1001" height="100" id="_x0000_i1028" src="./CSE576 Spring 2008 Project 2_files/tn_lorenm.jpg"></span></a><span style="color:lime"><br>
+</span>Panorama by Loren <span class="SpellE">Meritt</span></p>
+
+<p class="MsoNormal" style="margin-bottom:12.0pt"><span style="mso-fareast-font-family:
+PMingLiU"><br>
+The project will consist of a pipeline of command line EXE programs
+(Feature.exe and Panorama.exe)&nbsp;that will operate on images or intermediate
+results to produce the final panorama output. &nbsp;A complete description of
+each component can be found on the dedicated component web page.<br>
+<br>
+The steps required to complete the panorama are listed below:<o:p></o:p></span></p>
+
+<table class="MsoNormalTable" border="0" cellspacing="0" cellpadding="0" width="554" style="width:415.8pt;mso-cellspacing:0in;mso-yfti-tbllook:1184;mso-padding-alt:
+ 0in 0in 0in 0in">
+ <tbody><tr style="mso-yfti-irow:0;mso-yfti-firstrow:yes">
+  <td style="padding:0in 0in 0in 0in">
+  <p class="MsoNormal"><span style="mso-fareast-font-family:PMingLiU"><o:p>&nbsp;</o:p></span></p>
+  </td>
+  <td style="padding:0in 0in 0in 0in">
+  <p class="MsoNormal"><u><span style="mso-fareast-font-family:PMingLiU">Step</span></u><span style="mso-fareast-font-family:PMingLiU"><o:p></o:p></span></p>
+  </td>
+  <td style="padding:0in 0in 0in 0in">
+  <p class="MsoNormal"><u><span style="mso-fareast-font-family:PMingLiU">EXE</span></u><span style="mso-fareast-font-family:PMingLiU"><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style="mso-yfti-irow:1;height:11.4pt">
+  <td width="28" style="width:21.0pt;padding:0in 0in 0in 0in;height:11.4pt">
+  <p class="MsoNormal"><span style="font-size:10.0pt;font-family:Arial;
+  mso-fareast-font-family:PMingLiU;color:black">1.</span><span style="mso-fareast-font-family:PMingLiU"><o:p></o:p></span></p>
+  </td>
+  <td width="288" style="width:3.0in;padding:0in 0in 0in 0in;height:11.4pt">
+  <p class="MsoNormal"><span style="font-size:10.0pt;font-family:Arial;
+  mso-fareast-font-family:PMingLiU">Take pictures on a tripod (or handheld)</span><span style="mso-fareast-font-family:PMingLiU"><o:p></o:p></span></p>
+  </td>
+  <td width="62" style="width:.65in;padding:0in 0in 0in 0in;height:11.4pt">
+  <p class="MsoNormal" align="center" style="text-align:center"><span style="mso-fareast-font-family:PMingLiU"><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style="mso-yfti-irow:2;height:14.25pt">
+  <td width="28" style="width:21.0pt;padding:0in 0in 0in 0in;height:14.25pt">
+  <p class="MsoNormal"><span style="font-size:10.0pt;font-family:Arial;
+  mso-fareast-font-family:PMingLiU;color:black">2.</span><span style="mso-fareast-font-family:PMingLiU"><o:p></o:p></span></p>
+  </td>
+  <td width="221" style="width:165.75pt;padding:0in 0in 0in 0in;height:14.25pt">
+  <p class="MsoNormal"><span style="font-size:10.0pt;font-family:Arial;
+  mso-fareast-font-family:PMingLiU">Warp to spherical coordinates</span><span style="mso-fareast-font-family:PMingLiU"><o:p></o:p></span></p>
+  </td>
+  <td width="145" style="width:108.75pt;padding:0in 0in 0in 0in;height:14.25pt">
+  <p class="MsoNormal"><span style="mso-fareast-font-family:PMingLiU">(Panorama.exe)<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style="mso-yfti-irow:3;height:14.25pt">
+  <td width="28" style="width:21.0pt;padding:0in 0in 0in 0in;height:14.25pt">
+  <p class="MsoNormal"><span style="font-size:10.0pt;font-family:Arial;
+  mso-fareast-font-family:PMingLiU;color:black">3.</span><span style="mso-fareast-font-family:PMingLiU"><o:p></o:p></span></p>
+  </td>
+  <td width="117" style="width:87.75pt;padding:0in 0in 0in 0in;height:14.25pt">
+  <p class="MsoNormal"><span style="font-size:10.0pt;font-family:Arial;
+  mso-fareast-font-family:PMingLiU">Extract features</span><span style="mso-fareast-font-family:PMingLiU"><o:p></o:p></span></p>
+  </td>
+  <td width="249" style="width:186.75pt;padding:0in 0in 0in 0in;height:14.25pt">
+  <p class="MsoNormal"><span style="mso-fareast-font-family:PMingLiU">(Features.exe)<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style="mso-yfti-irow:4;height:14.25pt">
+  <td width="28" style="width:21.0pt;padding:0in 0in 0in 0in;height:14.25pt">
+  <p class="MsoNormal"><span style="font-size:10.0pt;font-family:Arial;
+  mso-fareast-font-family:PMingLiU;color:black">4.</span><span style="mso-fareast-font-family:PMingLiU"><o:p></o:p></span></p>
+  </td>
+  <td width="117" style="width:87.75pt;padding:0in 0in 0in 0in;height:14.25pt">
+  <p class="MsoNormal"><span style="font-size:10.0pt;font-family:Arial;
+  mso-fareast-font-family:PMingLiU">Match features</span><span style="mso-fareast-font-family:PMingLiU"><o:p></o:p></span></p>
+  </td>
+  <td width="249" style="width:186.75pt;padding:0in 0in 0in 0in;height:14.25pt">
+  <p class="MsoNormal"><span style="mso-fareast-font-family:PMingLiU">(Features.exe)<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style="mso-yfti-irow:5;height:14.25pt">
+  <td width="28" style="width:21.0pt;padding:0in 0in 0in 0in;height:14.25pt">
+  <p class="MsoNormal"><span style="font-size:10.0pt;font-family:Arial;
+  mso-fareast-font-family:PMingLiU;color:black">5.</span><span style="mso-fareast-font-family:PMingLiU"><o:p></o:p></span></p>
+  </td>
+  <td width="289" style="width:216.75pt;padding:0in 0in 0in 0in;height:14.25pt">
+  <p class="MsoNormal"><span style="font-size:10.0pt;font-family:Arial;
+  mso-fareast-font-family:PMingLiU">Align neighboring pairs using RANSAC</span><span style="mso-fareast-font-family:PMingLiU"><o:p></o:p></span></p>
+  </td>
+  <td width="77" style="width:57.75pt;padding:0in 0in 0in 0in;height:14.25pt">
+  <p class="MsoNormal"><span style="mso-fareast-font-family:PMingLiU">(Panorama.exe)<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style="mso-yfti-irow:6;height:14.25pt">
+  <td width="28" style="width:21.0pt;padding:0in 0in 0in 0in;height:14.25pt">
+  <p class="MsoNormal"><span style="font-size:10.0pt;font-family:Arial;
+  mso-fareast-font-family:PMingLiU;color:black">6.</span><span style="mso-fareast-font-family:PMingLiU"><o:p></o:p></span></p>
+  </td>
+  <td width="292" style="width:219.0pt;padding:0in 0in 0in 0in;height:14.25pt">
+  <p class="MsoNormal"><span style="font-size:10.0pt;font-family:Arial;
+  mso-fareast-font-family:PMingLiU">Write out list of neighboring translations</span><span style="mso-fareast-font-family:PMingLiU"><o:p></o:p></span></p>
+  </td>
+  <td width="74" style="width:55.5pt;padding:0in 0in 0in 0in;height:14.25pt">
+  <p class="MsoNormal"><span style="mso-fareast-font-family:PMingLiU">(Panorama.exe)<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style="mso-yfti-irow:7;height:14.25pt">
+  <td width="28" style="width:21.0pt;padding:0in 0in 0in 0in;height:14.25pt">
+  <p class="MsoNormal"><span style="font-size:10.0pt;font-family:Arial;
+  mso-fareast-font-family:PMingLiU;color:black">7.</span><span style="mso-fareast-font-family:PMingLiU"><o:p></o:p></span></p>
+  </td>
+  <td width="112" style="width:84.0pt;padding:0in 0in 0in 0in;height:14.25pt">
+  <p class="MsoNormal"><span style="font-size:10.0pt;font-family:Arial;
+  mso-fareast-font-family:PMingLiU">Correct for drift</span><span style="mso-fareast-font-family:PMingLiU"><o:p></o:p></span></p>
+  </td>
+  <td width="254" style="width:190.5pt;padding:0in 0in 0in 0in;height:14.25pt">
+  <p class="MsoNormal"><span style="mso-fareast-font-family:PMingLiU">(Panorama.exe)<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style="mso-yfti-irow:8;height:14.25pt">
+  <td width="28" style="width:21.0pt;padding:0in 0in 0in 0in;height:14.25pt">
+  <p class="MsoNormal"><span style="font-size:10.0pt;font-family:Arial;
+  mso-fareast-font-family:PMingLiU;color:black">8.</span><span style="mso-fareast-font-family:PMingLiU"><o:p></o:p></span></p>
+  </td>
+  <td width="295" style="width:221.25pt;padding:0in 0in 0in 0in;height:14.25pt">
+  <p class="MsoNormal"><span style="font-size:10.0pt;font-family:Arial;
+  mso-fareast-font-family:PMingLiU">Read in warped images and blend them</span><span style="mso-fareast-font-family:PMingLiU"><o:p></o:p></span></p>
+  </td>
+  <td width="71" style="width:53.25pt;padding:0in 0in 0in 0in;height:14.25pt">
+  <p class="MsoNormal"><span style="mso-fareast-font-family:PMingLiU">(Panorama.exe)<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style="mso-yfti-irow:9;mso-yfti-lastrow:yes;height:14.25pt">
+  <td width="22" style="width:16.8pt;padding:0in 0in 0in 0in;height:14.25pt">
+  <p class="MsoNormal"><span style="font-size:10.0pt;font-family:Arial;
+  mso-fareast-font-family:PMingLiU;color:black">9.</span><span style="mso-fareast-font-family:PMingLiU"><o:p></o:p></span></p>
+  </td>
+  <td width="291" style="width:218.25pt;padding:0in 0in 0in 0in;height:14.25pt">
+  <p class="MsoNormal"><span style="font-size:10.0pt;font-family:Arial;
+  mso-fareast-font-family:PMingLiU">Crop the result and import into a viewer</span><span style="mso-fareast-font-family:PMingLiU"><o:p></o:p></span></p>
+  </td>
+  <td style="padding:0in 0in 0in 0in;height:14.25pt">
+  <p class="MsoNormal"><span style="mso-fareast-font-family:PMingLiU">&nbsp;<o:p></o:p></span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+<p class="MsoNormal"><span style="mso-fareast-font-family:PMingLiU"><br style="mso-special-character:line-break">
+<!--[if !supportLineBreakNewLine]--><br style="mso-special-character:line-break">
+<!--[endif]--><o:p></o:p></span></p>
+
+<h2><a name="running">Getting Things to Run</a></h2>
+
+<h3>Running the sample solution</h3>
+
+<p class="MsoNormal">Features.exe and Panorama.exe&nbsp;are <span class="GramE">command
+line programs that requires</span> arguments to work properly. Thus you need to
+run it from the command <span class="GramE">line,</span> or from a shortcut to
+the executable that has the arguments specified in the "Target" field
+of the shortcut properties. &nbsp;The one exception to this is that running
+Features.exe without command line arguments opens up the UI. </p>
+
+<h4>Running from the command line</h4>
+
+<p class="MsoNormal">To run from the command line, click the Windows Start button
+and select "Run". Then enter "<span class="SpellE">cmd</span>"
+in the "Run" dialog and click "OK". A command window will
+pop up where you can type DOS commands. Use the DOS "<span class="SpellE">cd</span>"
+(change directory) command to navigate to the directory where Features.exe or
+Panorama.exe is located. Then type "Features" or "Panorama"
+followed by your arguments. If you do not supply any arguments, the program
+will print out information on what arguments it expects or open the UI in the
+case of Features.exe. </p>
+
+<h4>Running from a shortcut</h4>
+
+<p class="MsoNormal">Another way to pass arguments to a program is to create a
+shortcut to it. To create a shortcut, right-click on the executable and drag to
+the location where you wish to place the shortcut. A menu will pop up when you
+let go of the mouse button. From the menu, select "Create Shortcut
+Here". Now right-click on the short-cut you've created and select
+"Properties". In the properties dialog select the
+"Shortcut" tab and add your arguments after the text in the "Target"
+field. Your arguments must be outside of the quotation marks and separated with
+spaces. </p>
+
+<h3>Running the skeleton program</h3>
+
+<p class="MsoNormal">You can run the skeleton program from inside Visual Studio.
+However, you will need to tell Visual Studio what arguments to pass. Here's
+how: </p>
+
+<ol style="margin-top:0in" start="1" type="1">
+ <li class="MsoNormal" style="mso-list:l2 level1 lfo1;tab-stops:list .5in">Select
+     the "<span class="SpellE">ImageLib</span>" project in the Solution
+     Explorer (do NOT select the "Panorama" project, for some reason
+     this won't work). </li>
+ <li class="MsoNormal" style="mso-list:l2 level1 lfo1;tab-stops:list .5in">From
+     the "Project" menu choose "Properties" to bring up the
+     "Property Pages" dialog. </li>
+ <li class="MsoNormal" style="mso-list:l2 level1 lfo1;tab-stops:list .5in">Select
+     the "Debugging" Property page. </li>
+ <li class="MsoNormal" style="mso-list:l2 level1 lfo1;tab-stops:list .5in">Enter
+     your arguments in the "Command Arguments" field. </li>
+ <li class="MsoNormal" style="mso-list:l2 level1 lfo1;tab-stops:list .5in">Click
+     "Ok". </li>
+ <li class="MsoNormal" style="mso-list:l2 level1 lfo1;tab-stops:list .5in">Now
+     when you execute your program from within Visual Studio the arguments you
+     entered will be passed to it automatically.</li>
+ <li class="MsoNormal" style="mso-list:l2 level1 lfo1;tab-stops:list .5in">Repeat
+     the above steps for the solution for the Features component.</li>
+</ol>
+
+<p class="MsoNormal"><span style="mso-fareast-font-family:PMingLiU"><o:p>&nbsp;</o:p></span></p>
+
+<h2>Panorama Mosaic Stitching</h2>
+
+<p class="MsoNormal">You will use the feature detection and matching component<span class="GramE">&nbsp; to</span>&nbsp;combine a series of photographs into a 360<span style="font-family:Symbol">�</span> panorama. Your software will automatically
+align the photographs (determine their overlap and relative positions) and then
+blend the resulting photos into a single seamless panorama. You will then be
+able to view the resulting panorama inside an interactive Web viewer. To start
+this component, you will be supplied with some <a href="http://www.cs.washington.edu/education/courses/cse576/08sp/projects/project2/PanoramaSkeleton.zip">test
+images and skeleton code</a> that will guide you (the main solution file in
+Visual Studio is <span class="SpellE">Features.sln</span>). In addition, a
+solution executable can be found <a href="http://www.cs.washington.edu/education/courses/cse576/08sp/projects/project2/Panorama.exe">for
+Windows</a> or <a href="http://www.cs.washington.edu/education/courses/cse576/08sp/projects/project2/Panorama">for
+Linux</a>.<br>
+You can download the test images separately <a href="http://www.cs.washington.edu/education/courses/cse576/08sp/projects/project2/PanoramaTestImages.zip">here</a>.
+<br>
+<a href="https://courses.cs.washington.edu/courses/cse576/08sp/projects/project2/project2.html#pictures">Taking the Pictures</a><br>
+<a href="https://courses.cs.washington.edu/courses/cse576/08sp/projects/project2/project2.html#todo"><span class="SpellE">ToDo</span></a><br>
+<a href="https://courses.cs.washington.edu/courses/cse576/08sp/projects/project2/project2.html#panorama">Creating the Panorama</a><br>
+<a href="https://courses.cs.washington.edu/courses/cse576/08sp/projects/project2/project2.html#debugging">Debugging</a><br>
+<a href="https://courses.cs.washington.edu/courses/cse576/08sp/projects/project2/project2.html#EC">Extra Credit</a><br>
+<a href="https://courses.cs.washington.edu/courses/cse576/08sp/projects/project2/project2.html#panoramalinks">Panorama Links</a> <a name="synopsis"></a></p>
+
+<h2><a name="pictures">Taking the Pictures</a></h2>
+
+<p>You will be checking out a panorama kit (camera, tripod, and <span class="SpellE">Kaidan</span> head). &nbsp; Remember to bring extra batteries with
+you, these cameras drain batteries.</p>
+
+<p>Skip this step for the test data. Its camera parameters can be found in the
+sample commands in <a href="https://courses.cs.washington.edu/courses/cse576/08sp/projects/project2/stitch4.txt">stitch4.txt</a>, which is provided
+along with the skeleton code.</p>
+
+<ol start="1" type="1">
+ <li class="MsoNormal" style="mso-margin-top-alt:auto;margin-bottom:12.0pt;
+     mso-list:l6 level1 lfo2;tab-stops:list .5in">Take a series of photos with
+     a digital camera mounted on a tripod.&nbsp;Here is <a href="http://www.cs.washington.edu/education/courses/cse576/05sp/projects/proj2/setup.htm">a
+     web page explaining how to use the equipment</a>. Please read it before
+     you go out to shoot. Then you should borrow the <a href="http://www.kaidan.com/products/kiwi+.html"><span class="SpellE">Kaidan</span>
+     head</a> that lets you make precise rotations and the <a href="http://www.cs.washington.edu/education/courses/cse576/05sp/projects/proj2/A10_A20CUG.pdf">Canon
+     <span class="SpellE">PowerShot</span> A10</a> camera for this purpose. For
+     best results, overlap each image by 50% with the previous one, and keep
+     the camera level using the levelers on the <span class="SpellE">Kaidan</span>
+     head. </li>
+ <li class="MsoNormal" style="mso-margin-top-alt:auto;margin-bottom:12.0pt;
+     mso-list:l6 level1 lfo2;tab-stops:list .5in">Also take a series of images
+     with a handheld camera.&nbsp; You can use your own or use the Canon <span class="SpellE">PowerShot</span> A10 camera that you signed up for. If you
+     are using the Canon camera, it has a �stitch assist� mode you can use to
+     overlap your images correctly, which only works in regular landscape
+     mode.&nbsp; If you are using your own camera, you have to estimate the
+     focal length. &nbsp;The simplest way to do this is through the EXIF tags
+     of the images, as described by Noah <span class="SpellE">Snavely</span> <a href="http://www.cs.washington.edu/education/courses/cse455/08wi/projects/project2/web/focal.html">here</a>.
+     &nbsp;Alternatively, you can use a <a href="http://www.cs.washington.edu/education/courses/558/01sp/software/calibration/">camera
+     calibration toolkit</a> to get more precise focal length and radial
+     distortion coefficients.&nbsp; Finally, Brett Allen describes one creative
+     way to measure rough focal length using just a <a href="http://www.cs.washington.edu/education/courses/cse590ss/01wi/projects/project1/students/allen/index.html">book
+     and a box</a>. &nbsp;The parameters for the class cameras are given below.
+     <b>The following focal length is valid only if the camera is zoomed out
+     all the way.</b> </li>
+</ol>
+
+<table class="MsoNormalTable" border="1" cellpadding="0" width="95%" style="width:95.0%;mso-cellspacing:1.5pt;margin-left:.5in;mso-yfti-tbllook:
+ 1184;mso-padding-alt:0in 0in 0in 0in">
+ <tbody><tr style="mso-yfti-irow:0;mso-yfti-firstrow:yes">
+  <td width="30%" style="width:30.28%;padding:.75pt .75pt .75pt .75pt">
+  <p class="MsoNormal" align="center" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:
+  auto;text-align:center">Camera</p>
+  </td>
+  <td width="15%" style="width:15.14%;padding:.75pt .75pt .75pt .75pt">
+  <p class="MsoNormal" align="center" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:
+  auto;text-align:center">resolution</p>
+  </td>
+  <td width="23%" style="width:23.42%;padding:.75pt .75pt .75pt .75pt">
+  <p class="MsoNormal" align="center" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:
+  auto;text-align:center">focal length</p>
+  </td>
+  <td width="13%" style="width:13.76%;padding:.75pt .75pt .75pt .75pt">
+  <p class="MsoNormal" align="center" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:
+  auto;text-align:center"><span style="font-family:Symbol">k1</span> </p>
+  </td>
+  <td width="16%" style="width:16.52%;padding:.75pt .75pt .75pt .75pt">
+  <p class="MsoNormal" align="center" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:
+  auto;text-align:center"><span style="font-family:Symbol">k2</span></p>
+  </td>
+ </tr>
+ <tr style="mso-yfti-irow:1">
+  <td width="30%" style="width:30.28%;padding:.75pt .75pt .75pt .75pt">
+  <p class="MsoNormal" align="center" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:
+  auto;text-align:center">Canon <span class="SpellE">Powershot</span> A10, tag
+  CS30012716</p>
+  </td>
+  <td width="15%" style="width:15.14%;padding:.75pt .75pt .75pt .75pt">
+  <p class="MsoNormal" align="center" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:
+  auto;text-align:center">480x640</p>
+  </td>
+  <td width="23%" style="width:23.42%;padding:.75pt .75pt .75pt .75pt">
+  <p class="MsoNormal" align="center" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:
+  auto;text-align:center">678.21239 pixels</p>
+  </td>
+  <td width="13%" style="width:13.76%;padding:.75pt .75pt .75pt .75pt">
+  <p class="MsoNormal" align="center" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:
+  auto;text-align:center">-0.21001</p>
+  </td>
+  <td width="16%" style="width:16.52%;padding:.75pt .75pt .75pt .75pt">
+  <p class="MsoNormal" align="center" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:
+  auto;text-align:center">0.26169</p>
+  </td>
+ </tr>
+ <tr style="mso-yfti-irow:2">
+  <td width="30%" style="width:30.28%;padding:.75pt .75pt .75pt .75pt">
+  <p class="MsoNormal" align="center" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:
+  auto;text-align:center">Canon <span class="SpellE">Powershot</span> A10, tag
+  CS30012717</p>
+  </td>
+  <td width="15%" style="width:15.14%;padding:.75pt .75pt .75pt .75pt">
+  <p class="MsoNormal" align="center" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:
+  auto;text-align:center">480x640</p>
+  </td>
+  <td width="23%" style="width:23.42%;padding:.75pt .75pt .75pt .75pt">
+  <p class="MsoNormal" align="center" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:
+  auto;text-align:center">677.50487 pixels</p>
+  </td>
+  <td width="13%" style="width:13.76%;padding:.75pt .75pt .75pt .75pt">
+  <p class="MsoNormal" align="center" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:
+  auto;text-align:center">-0.20406</p>
+  </td>
+  <td width="16%" style="width:16.52%;padding:.75pt .75pt .75pt .75pt">
+  <p class="MsoNormal" align="center" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:
+  auto;text-align:center">0.23276</p>
+  </td>
+ </tr>
+ <tr style="mso-yfti-irow:3">
+  <td width="30%" style="width:30.28%;padding:.75pt .75pt .75pt .75pt">
+  <p class="MsoNormal" align="center" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:
+  auto;text-align:center">Canon <span class="SpellE">Powershot</span> A10, tag
+  CS30012718</p>
+  </td>
+  <td width="15%" style="width:15.14%;padding:.75pt .75pt .75pt .75pt">
+  <p class="MsoNormal" align="center" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:
+  auto;text-align:center">480x640</p>
+  </td>
+  <td width="23%" style="width:23.42%;padding:.75pt .75pt .75pt .75pt">
+  <p class="MsoNormal" align="center" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:
+  auto;text-align:center">676.48417 pixels</p>
+  </td>
+  <td width="13%" style="width:13.76%;padding:.75pt .75pt .75pt .75pt">
+  <p class="MsoNormal" align="center" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:
+  auto;text-align:center">-0.20845</p>
+  </td>
+  <td width="16%" style="width:16.52%;padding:.75pt .75pt .75pt .75pt">
+  <p class="MsoNormal" align="center" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:
+  auto;text-align:center">0.25624</p>
+  </td>
+ </tr>
+ <tr style="mso-yfti-irow:4">
+  <td width="30%" style="width:30.28%;padding:.75pt .75pt .75pt .75pt">
+  <p class="MsoNormal" align="center" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:
+  auto;text-align:center">Canon <span class="SpellE">Powershot</span> A10, tag
+  CS30012927</p>
+  </td>
+  <td width="15%" style="width:15.14%;padding:.75pt .75pt .75pt .75pt">
+  <p class="MsoNormal" align="center" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:
+  auto;text-align:center">480x640</p>
+  </td>
+  <td width="23%" style="width:23.42%;padding:.75pt .75pt .75pt .75pt">
+  <p class="MsoNormal" align="center" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:
+  auto;text-align:center">671.16649 pixels</p>
+  </td>
+  <td width="13%" style="width:13.76%;padding:.75pt .75pt .75pt .75pt">
+  <p class="MsoNormal" align="center" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:
+  auto;text-align:center">-0.19270</p>
+  </td>
+  <td width="16%" style="width:16.52%;padding:.75pt .75pt .75pt .75pt">
+  <p class="MsoNormal" align="center" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:
+  auto;text-align:center">0.14168</p>
+  </td>
+ </tr>
+ <tr style="mso-yfti-irow:5">
+  <td width="30%" style="width:30.28%;padding:.75pt .75pt .75pt .75pt">
+  <p class="MsoNormal" align="center" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:
+  auto;text-align:center">Canon <span class="SpellE">Powershot</span> A10, tag
+  CS30012928</p>
+  </td>
+  <td width="15%" style="width:15.14%;padding:.75pt .75pt .75pt .75pt">
+  <p class="MsoNormal" align="center" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:
+  auto;text-align:center">480x640</p>
+  </td>
+  <td width="23%" style="width:23.42%;padding:.75pt .75pt .75pt .75pt">
+  <p class="MsoNormal" align="center" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:
+  auto;text-align:center">674.82258 pixels</p>
+  </td>
+  <td width="13%" style="width:13.76%;padding:.75pt .75pt .75pt .75pt">
+  <p class="MsoNormal" align="center" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:
+  auto;text-align:center">-0.21528</p>
+  </td>
+  <td width="16%" style="width:16.52%;padding:.75pt .75pt .75pt .75pt">
+  <p class="MsoNormal" align="center" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:
+  auto;text-align:center">0.30098</p>
+  </td>
+ </tr>
+ <tr style="mso-yfti-irow:6">
+  <td width="30%" style="width:30.28%;padding:.75pt .75pt .75pt .75pt">
+  <p class="MsoNormal" align="center" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:
+  auto;text-align:center">Canon <span class="SpellE">Powershot</span> A10, tag
+  CS30012929</p>
+  </td>
+  <td width="15%" style="width:15.14%;padding:.75pt .75pt .75pt .75pt">
+  <p class="MsoNormal" align="center" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:
+  auto;text-align:center">480x640</p>
+  </td>
+  <td width="23%" style="width:23.42%;padding:.75pt .75pt .75pt .75pt">
+  <p class="MsoNormal" align="center" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:
+  auto;text-align:center">674.79106 pixels</p>
+  </td>
+  <td width="13%" style="width:13.76%;padding:.75pt .75pt .75pt .75pt">
+  <p class="MsoNormal" align="center" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:
+  auto;text-align:center">-0.21483</p>
+  </td>
+  <td width="16%" style="width:16.52%;padding:.75pt .75pt .75pt .75pt">
+  <p class="MsoNormal" align="center" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:
+  auto;text-align:center">0.32286</p>
+  </td>
+ </tr>
+ <tr style="mso-yfti-irow:7;mso-yfti-lastrow:yes">
+  <td width="30%" style="width:30.28%;padding:.75pt .75pt .75pt .75pt">
+  <p class="MsoNormal" align="center" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:
+  auto;text-align:center">test images</p>
+  </td>
+  <td width="15%" style="width:15.14%;padding:.75pt .75pt .75pt .75pt">
+  <p class="MsoNormal" align="center" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:
+  auto;text-align:center">384x512</p>
+  </td>
+  <td width="23%" style="width:23.42%;padding:.75pt .75pt .75pt .75pt">
+  <p class="MsoNormal" align="center" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:
+  auto;text-align:center">595 pixels</p>
+  </td>
+  <td width="13%" style="width:13.76%;padding:.75pt .75pt .75pt .75pt">
+  <p class="MsoNormal" align="center" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:
+  auto;text-align:center">-0.15</p>
+  </td>
+  <td width="16%" style="width:16.52%;padding:.75pt .75pt .75pt .75pt">
+  <p class="MsoNormal" align="center" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:
+  auto;text-align:center">0.0</p>
+  </td>
+ </tr>
+</tbody></table>
+
+<ol start="3" type="1">
+ <li class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l9 level1 lfo3;tab-stops:list .5in">Make sure the images are
+     right side up (rotate the images by 90<span style="font-family:Symbol">�</span>
+     if you took them in landscape mode), and reduce them to a more workable
+     size (480x640 recommended). You can use external software such as <span class="SpellE">PhotoShop</span> or the Microsoft Photo Editor to do this. Or
+     you may want to set the camera to 640x480 resolution from the start, by
+     following the steps below: </li>
+</ol>
+
+<ol start="3" type="1">
+ <ol start="1" type="a">
+  <li class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:
+      auto;mso-list:l9 level2 lfo3;tab-stops:list 1.0in">Turn the mode dial on
+      the back of the camera to one of the 3 shooting modes--auto (camera
+      icon), manual (camera icon + M) or stitch assist (overlaid rectangles). </li>
+  <li class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:
+      auto;mso-list:l9 level2 lfo3;tab-stops:list 1.0in">Press MENU button. </li>
+  <li class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:
+      auto;mso-list:l9 level2 lfo3;tab-stops:list 1.0in">Press the left/right
+      arrow to choose Resolution, <span class="GramE">then</span> press SET. </li>
+  <li class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:
+      auto;mso-list:l9 level2 lfo3;tab-stops:list 1.0in">Press the left/right
+      arrow and choose S (640x480). </li>
+  <li class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:
+      auto;mso-list:l9 level2 lfo3;tab-stops:list 1.0in">Press MENU again. </li>
+ </ol>
+</ol>
+
+<p style="margin-left:.5in">(Note: If you are using the skeleton software, <b>save
+your images in (<span class="SpellE">TrueVision</span>) <span class="SpellE">Targa</span>
+format (.<span class="SpellE">tga</span>)</b>, since this is the only format the
+skeleton software can currently read. Also make sure <b>the aspect ratio of the
+image (width vs. height) is either 4:3 or 3:4 </b>(480x640 will do) which is
+the only aspect ratio supported by the skeleton software.)</p>
+
+<h2><a name="todo"></a><span class="SpellE"><span style="mso-bookmark:todo">ToDo</span></span><span style="mso-bookmark:todo"></span></h2>
+
+<span style="mso-bookmark:todo"></span>
+
+<p>Note: The skeleton code includes an image library, <span class="SpellE"><span class="GramE">ImageLib</span></span><span class="GramE">, that</span> is fairly
+general and complex.&nbsp; It is NOT necessary for you to peek extensively into
+this library!&nbsp; We have created some notes for you <a href="http://www.cs.washington.edu/education/courses/csep576/05wi/projects/project2/imagelibnotes.htm">here</a>.</p>
+
+<ol start="1" type="1">
+ <li class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l8 level1 lfo4;tab-stops:list .5in">Warp each image into
+     spherical coordinates.&nbsp;(file: <span class="SpellE"><i>WarpSpherical.cpp</i></span><i>,
+     </i>routine: <span class="SpellE"><i>warpSphericalField</i></span><i>)</i> </li>
+</ol>
+
+<p style="margin-left:.5in">[<b>TODO</b>] Compute the inverse map to warp the
+image by filling in the skeleton code in the <span class="SpellE"><i>warpSphericalField</i></span>
+routine to:</p>
+
+<ol start="1" type="1">
+ <ol start="1" type="a">
+  <li class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:
+      auto;mso-list:l5 level2 lfo5;tab-stops:list 1.0in">convert the given
+      spherical image coordinate into the corresponding planar image coordinate
+      using the coordinate transformation equation from the lecture notes</li>
+  <li class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:
+      auto;mso-list:l5 level2 lfo5;tab-stops:list 1.0in">apply radial
+      distortion using the equation from the lecture notes </li>
+ </ol>
+</ol>
+
+<p style="margin-top:5.0pt;margin-right:0in;margin-bottom:12.0pt;margin-left:
+.5in">(Note: You will have to use the focal length <i>f</i> estimates for the
+half-resolution images provided above (you can either take pictures and save
+them in small files or save them in large files and reduce them afterwards) .<b>
+If you use a different image size, do remember to scale <i>f</i> according to
+the image size.)</b></p>
+
+<ol start="2" type="1">
+ <li class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l1 level1 lfo6;tab-stops:list .5in">Compute the alignment of the
+     images in pairs. (file: <span class="SpellE"><i>FeatureAlign.cpp</i></span>,
+     routines: <span class="SpellE"><i>alignPair</i></span>,<i> <span class="SpellE">countInliers</span></i>, and <span class="SpellE"><i>leastSquaresFit</i></span>)
+     </li>
+</ol>
+
+<p style="margin-left:.5in">To do this, you will have to implement <span class="GramE">a feature</span>-based translational motion estimation.&nbsp; The
+skeleton for this code is provided in <span class="SpellE"><i>FeatureAlign.cpp</i></span>.&nbsp;
+The main routines that you will be implementing are:</p>
+
+<p style="margin-left:1.0in;text-indent:-.5in"><span class="SpellE"><span class="GramE"><span style="font-size:10.0pt;font-family:&quot;Courier New&quot;">int</span></span></span><span style="font-size:10.0pt;font-family:&quot;Courier New&quot;"> <span class="SpellE">alignPair</span>(<span style="color:blue">const</span> <span class="SpellE">FeatureSet</span> &amp;f1, <span style="color:blue">const</span> <span class="SpellE">FeatureSet</span> &amp;f2, <span style="color:blue">const</span> vector&lt;<span class="SpellE">FeatureMatch</span>&gt;
+&amp;matches, <span class="SpellE">MotionModel</span> m, <span style="color:blue">float</span>
+f, <span class="SpellE">int</span> <span class="SpellE">nRANSAC</span>, double <span class="SpellE">RANSACthresh</span>, CTransform3x3&amp; M);<u1:p></u1:p></span></p>
+
+<p style="margin-left:1.0in;text-indent:-.5in"><span class="SpellE"><span style="font-size:10.0pt;font-family:&quot;Courier New&quot;">int</span></span><span style="font-size:10.0pt;font-family:&quot;Courier New&quot;"> <span class="SpellE">countInliers</span>(<span style="color:blue">const</span> <span class="SpellE">FeatureSet</span> &amp;f1, <span style="color:blue">const</span> <span class="SpellE">FeatureSet</span> &amp;f2, <span style="color:blue">const</span> vector&lt;<span class="SpellE">FeatureMatch</span>&gt;
+&amp;matches, <span class="SpellE">MotionModel</span> m, <span style="color:blue">float</span>
+f, CTransform3x3 M, double <span class="SpellE">RANSACthresh</span>, vector&lt;<span class="SpellE">int</span>&gt; &amp;inliers);<u1:p></u1:p></span></p>
+
+<p style="margin-left:1.0in;text-indent:-.5in"><span class="SpellE"><span style="font-size:10.0pt;font-family:&quot;Courier New&quot;">int</span></span><span style="font-size:10.0pt;font-family:&quot;Courier New&quot;"> <span class="SpellE">leastSquaresFit</span>(<span style="color:blue">const</span> <span class="SpellE">FeatureSet</span> &amp;f1, <span style="color:blue">const</span> <span class="SpellE">FeatureSet</span> &amp;f2, <span style="color:blue">const</span> vector&lt;<span class="SpellE">FeatureMatch</span>&gt;
+&amp;matches, <span class="SpellE">MotionModel</span> m, <span style="color:blue">float</span>
+f, <span style="color:blue">const</span> vector&lt;<span class="SpellE">int</span>&gt;
+&amp;inliers, CTransform3x3&amp; M);<u1:p></u1:p></span></p>
+
+<p style="margin-left:.5in"><span class="SpellE"><i>AlignPair</i></span> takes
+two feature sets, f1 and f2, the list of feature matches obtained from the
+feature detecting and matching component (described in the first part of the
+project),&nbsp; a <i>motion model</i> (described below), and estimates and
+inter-image transform matrix M. &nbsp;For this project, the <span class="SpellE">enum</span>
+<span class="SpellE"><i>MotionModel</i></span> only takes on the value <span class="SpellE"><i>eTranslate</i></span>.</p>
+
+<p style="margin-left:.5in"><span class="SpellE"><i>AlignPair</i></span> uses
+RANSAC (<span class="SpellE">RAndom</span> <span class="SpellE">SAmpling</span>
+Consensus) to pull out a minimal set of feature matches (one match for this
+project), estimates the corresponding motion (alignment) and then invokes <span class="SpellE"><i>countInliers</i></span> to count how many of the feature
+matches agree with the current motion estimate.&nbsp; After repeated trials,
+the motion estimate with the largest number of inliers is used to compute a
+least squares estimate for the motion, which is then returned in the motion
+estimate <i>M.</i></p>
+
+<p style="margin-left:.5in"><span class="SpellE"><i>CountInliers</i></span>
+computes the number of matches that have a distance below <span class="SpellE"><i>RANSACthresh</i></span>
+is computed.&nbsp; It also returns a list of <span class="SpellE">inlier</span>
+match ids.<o:p></o:p></p>
+
+<u1:p></u1:p>
+
+<p style="margin-left:.5in"><span class="SpellE"><i>LeastSquaresFit</i></span>
+computes a least squares estimate for the translation using all of the matches
+previously estimated as inliers.&nbsp; It returns the resulting translation
+estimate in the last column of <i>M</i>.</p>
+
+<p style="margin-left:.5in">[<b>TODO</b>] You will have to fill in the missing
+code in <span class="SpellE"><i>alignPair</i></span> to:</p>
+
+<ol start="2" type="1">
+ <ol start="3" type="a">
+  <li class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:
+      auto;mso-list:l11 level2 lfo7;tab-stops:list 1.0in">Randomly select a
+      valid matching pair and compute the translation between the two feature
+      locations.</li>
+  <li class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:
+      auto;mso-list:l11 level2 lfo7;tab-stops:list 1.0in">Call <span class="SpellE"><i>countInliers</i></span> to count how many matches agree
+      with this estimate.</li>
+  <li class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:
+      auto;mso-list:l11 level2 lfo7;tab-stops:list 1.0in">Repeat the above random
+      selection <span class="SpellE">nRANSAC</span> times and keep the estimate
+      with the largest number of inliers.</li>
+  <li class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:
+      auto;mso-list:l11 level2 lfo7;tab-stops:list 1.0in">Write the body of <span class="SpellE"><i>countInliers</i></span> to count the number of feature
+      matches where the SSD distance after applying the estimated transform
+      (i.e. the distance from the match to its correct position in the image)
+      is below the threshold. (<span class="GramE">and</span> don�t forget to
+      create the list of <span class="SpellE">inlier</span> ids.)</li>
+  <li class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:
+      auto;mso-list:l11 level2 lfo7;tab-stops:list 1.0in">Write the body of <span class="SpellE"><i>leastSquaresFit</i></span>, which for the simple
+      translational case is just the average displacement between the matching
+      feature positions.</li>
+ </ol>
+</ol>
+
+<ol start="3" type="1">
+ <li class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo8;tab-stops:list .5in">Stitch and crop the resulting
+     aligned images. (file: <span class="SpellE"><i>BlendImages.cpp</i></span>,
+     routines: <span class="SpellE"><i>BlendImages</i></span><i>, <span class="SpellE">AccumulateBlend</span>, <span class="SpellE">NormalizeBlend</span></i>)<br>
+     <br>
+     [<b>TODO</b>] Given the warped images and their relative displacements,
+     figure out how large the final stitched image will be and their absolute
+     displacements in the panorama (<span class="SpellE"><i>BlendImages</i></span>).
+     </li>
+</ol>
+
+<p style="margin-left:.5in">[<b>TODO</b>] Then, resample each image to its
+final location and blend it with its neighbors (<span class="SpellE"><i>AccumulateBlend</i></span><i>,
+<span class="SpellE">NormalizeBlend</span></i>).&nbsp;Try a simple feathering
+function as your weighting function (see mosaics lecture slide on
+"feathering") (this is a simple 1-D version of the distance map
+described in [<a href="http://www.acm.org/pubs/citations/proceedings/graph/258734/p251-szeliski/"><span class="SpellE">Szeliski</span> &amp; Shum</a>]).&nbsp; For extra credit, you can
+try other blending functions or figure out some way to compensate for exposure
+differences. In <span class="SpellE"><i>NormalizeBlend</i></span>, remember to
+set the alpha channel of the resultant panorama to opaque!</p>
+
+<p style="margin-left:.5in">[<b>TODO</b>] Crop the resulting image to make the
+left and right edges seam perfectly (<span class="SpellE"><i>BlendImages</i></span>).
+The horizontal extent can be computed in the previous blending routine since
+the first image occurs at both the left and right end of the stitched sequence
+(draw the �cut� line halfway through this image).&nbsp; Use a linear warp to
+the mosaic to remove any vertical �drift� between the first and last
+image.&nbsp; This warp, of the form y' = y + ax, should transform the y
+coordinates of the mosaic such that the first image has the same y-coordinate
+on both the left and right end.&nbsp; Calculate the value of 'a' needed to
+perform this transformation. </p>
+
+<h2><a name="panorama">Creating the Panorama</a></h2>
+
+<ol start="1" type="1">
+ <li class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l3 level1 lfo9;tab-stops:list .5in">Use the above program you
+     wrote to warp/align/stitch images into the resulting panorama. </li>
+</ol>
+
+<ol start="1" type="1">
+ <ul type="circle">
+  <li class="MsoNormal" style="mso-margin-top-alt:auto;margin-bottom:12.0pt;
+      mso-list:l3 level2 lfo9;tab-stops:list 1.0in">To remove the radial
+      distortion and warp the image <i>input1.tga </i>into spherical coordinate
+      with focal length = 600, radial distortion coefficients k1=-0.21 and
+      k2=0.25 (Panorama is the name of the program):<br>
+      <br>
+      &nbsp;&nbsp; <i>Panorama <span class="SpellE">sphrWarp</span> input1.tga
+      warp1.tga 600 -0.21 0.25</i> </li>
+  <li class="MsoNormal" style="mso-margin-top-alt:auto;margin-bottom:12.0pt;
+      mso-list:l3 level2 lfo9;tab-stops:list 1.0in">Then, use the feature
+      detecting and matching component&nbsp;to compute the features in the warped
+      images. To align two feature sets <i>warp1.f</i> and <i>warp2.f</i>, with
+      a set of matches in <i>match1to2.txt</i>, using 200 iterations of RANSAC
+      with an outlier threshold distance of 1 pixel:<br>
+      <br>
+      &nbsp;&nbsp;&nbsp; <i>Panorama <span class="SpellE">alignPair</span>
+      warp1.f warp2.f match1to2.txt 200 1</i> </li>
+ </ul>
+</ol>
+
+<p style="margin-left:1.0in">Note that you can also use SIFT features to do the
+alignment, which can be useful for testing this component before the feature
+detection and matching component is finished. To do so, add the work sift to
+the end of the command, as in: <br>
+<br>
+&nbsp;&nbsp;&nbsp; <i>Panorama <span class="SpellE">alignPair</span> warp1.key
+warp2.key match1to2.txt 200 1 sift</i> </p>
+
+<p style="margin-left:1.0in">Sample SIFT features and matches have been
+provided to you. </p>
+
+<ol start="1" type="1">
+ <ul type="circle">
+  <li class="MsoNormal" style="mso-margin-top-alt:auto;margin-bottom:12.0pt;
+      mso-list:l3 level2 lfo9;tab-stops:list 1.0in">Run the previous step for
+      all adjacent pairs of images and save the output into a separate file <i>pairlist.txt
+      </i>which may look like this:<br>
+      <i><br>
+      &nbsp;&nbsp;&nbsp; warp1.tga warp2.tga 213.49 -5.12<br>
+      &nbsp;&nbsp;&nbsp; warp2.tga warp3.tga 208.19 2.82<br>
+      &nbsp;&nbsp;&nbsp; ......<br>
+      &nbsp;&nbsp;&nbsp; warp9.tga warp1.tga 194.76 -3.88</i> </li>
+  <li class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:
+      auto;mso-list:l3 level2 lfo9;tab-stops:list 1.0in">Then stitch the images
+      into the final panorama <span class="SpellE"><i>pano.tga</i></span>:<br>
+      <br>
+      &nbsp;&nbsp;&nbsp; <i>Panorama <span class="SpellE">blendPairs</span>
+      pairlist.txt <span class="SpellE">pano.tga</span> <span class="SpellE">blendWidth</span></i>
+      </li>
+ </ul>
+</ol>
+
+<p style="margin-left:.5in">You may also refer to the file </p>
+
+<p class="MsoNormal" style="margin-top:0in;margin-right:0in;margin-bottom:12.0pt;
+margin-left:.5in"><a href="https://courses.cs.washington.edu/courses/cse576/08sp/projects/project2/stitch2.txt"><span class="GramE">stitch2.txt</span></a><i>
+</i>provided along with the skeleton code for the appropriate command line
+syntax. This command-line interface allows you to debug each stage of the
+program independently.</p>
+
+<ol start="2" type="1">
+ <li class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l10 level1 lfo10;tab-stops:list .5in">Convert your resulting
+     image to a JPEG (Photoshop and other tools in the <span class="SpellE">Sieg</span>
+     lab can help you with this) and paste it on a Web page along with code to
+     run the interactive viewer.&nbsp;Click <a href="http://www.cs.washington.edu/education/courses/cse576/05sp/projects/proj2/panoviewing.htm">here</a>
+     for instructions on how to do this. </li>
+</ol>
+
+<h2><a name="debugging">Debugging Guidelines</a></h2>
+
+<p>You can use the test results included in the images/ folder to check whether
+your program is running correctly. Comparing your output to that of the sample
+solution is also a good way of debugging your program.</p>
+
+<ol start="1" type="1">
+ <li class="MsoNormal" style="mso-margin-top-alt:auto;margin-bottom:12.0pt;
+     mso-list:l12 level1 lfo11;tab-stops:list .5in">Testing the warping
+     routines: </li>
+</ol>
+
+<ol start="1" type="1">
+ <ul type="circle">
+  <li class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:
+      auto;mso-list:l12 level2 lfo11;tab-stops:list 1.0in">In the images/
+      folder in the skeleton code, a few example warped images are provided for
+      test purposes. The camera parameters used for these examples can be found
+      in the sample command file stitch2.txt. See if your program produces the
+      same output. </li>
+  <li class="MsoNormal" style="mso-margin-top-alt:auto;margin-bottom:12.0pt;
+      mso-list:l12 level2 lfo11;tab-stops:list 1.0in">You may also test with
+      different input images and/or camera parameter values by comparing the
+      results with those of the sample solution. </li>
+ </ul>
+</ol>
+
+<ol start="2" type="1">
+ <li class="MsoNormal" style="mso-margin-top-alt:auto;margin-bottom:12.0pt;
+     mso-list:l12 level1 lfo11;tab-stops:list .5in">Testing the alignment
+     routines: </li>
+</ol>
+
+<ol start="2" type="1">
+ <ul type="circle">
+  <li class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:
+      auto;mso-list:l12 level2 lfo11;tab-stops:list 1.0in">A few example
+      alignment results are provided in the file pairlist2/4.txt. The
+      corresponding shell commands can be found in stitch2/4.txt. </li>
+  <li class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:
+      auto;mso-list:l12 level2 lfo11;tab-stops:list 1.0in">To test <span class="SpellE"><i>alignPair</i></span> only, try passing in an image that
+      has been cropped with two different rectangles (and maybe rotated by a
+      tiny amount, say 2 degrees). </li>
+  <li class="MsoNormal" style="mso-margin-top-alt:auto;margin-bottom:12.0pt;
+      mso-list:l12 level2 lfo11;tab-stops:list 1.0in">We have also provided <span class="GramE">sample SIFT</span> key files and matches for the test images,
+      for testing the alignment routines.</li>
+ </ul>
+</ol>
+
+<ol start="3" type="1">
+ <li class="MsoNormal" style="mso-margin-top-alt:auto;margin-bottom:12.0pt;
+     mso-list:l12 level1 lfo11;tab-stops:list .5in">Testing the blending
+     routines: </li>
+</ol>
+
+<ol start="3" type="1">
+ <ul type="circle">
+  <li class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:
+      auto;mso-list:l12 level2 lfo11;tab-stops:list 1.0in">An example panorama
+      is included in the images/ folder. Compare the resulting panorama with
+      this image. </li>
+  <li class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:
+      auto;mso-list:l12 level2 lfo11;tab-stops:list 1.0in">You may also test
+      with other panoramas by running the sample solution on different inputs. </li>
+ </ul>
+</ol>
+
+<h2><a name="EC">Extra Credit</a></h2>
+
+<p>Here is a list of suggestions for extending the program for extra credit.
+You are encouraged to come up with your own extensions. We're always interested
+in seeing new, unanticipated ways to use this program!</p>
+
+<ul type="disc">
+ <li class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l4 level1 lfo12;tab-stops:list .5in">Although the feature-based
+     aligner gives sub-pixel motion estimation (because of least squares), the
+     motion vectors are rounded to integers when blending the images into the
+     mosaic in <span class="SpellE"><i>BlendImages.cpp</i></span>. Try to blend
+     images with sub-pixel localization.&nbsp;</li>
+ <li class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l4 level1 lfo12;tab-stops:list .5in">Sometimes, there exists
+     exposure difference between images, which results in brightness
+     fluctuation in the final mosaic. Try to get rid of this artifact.&nbsp;</li>
+ <li class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l4 level1 lfo12;tab-stops:list .5in">Try shooting a sequence with
+     some objects moving.&nbsp; What did you do to remove �ghosted� versions of
+     the objects?</li>
+ <li class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l4 level1 lfo12;tab-stops:list .5in">Try a sequence in which the
+     same person appears multiple times, as in <a href="http://www.cs.washington.edu/education/courses/cse590ss/01wi/projects/project1/students/dougz/siggraph-hires.html">this
+     example</a>. </li>
+ <li class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l4 level1 lfo12;tab-stops:list .5in">Implement a better blending
+     technique, e.g., <a href="http://www-bcs.mit.edu/people/adelson/pub_pdfs/spline83.pdf">pyramid
+     blending</a>, <span class="MsoHyperlink"><a href="http://delivery.acm.org/10.1145/890000/882269/p313-perez.pdf?key1=882269&amp;key2=0249918021&amp;coll=GUIDE&amp;dl=GUIDE&amp;CFID=37241211&amp;CFTOKEN=62443481"><span class="SpellE">possion</span> imaging blending</a></span><span class="MsoHyperlink"><span style="color:windowtext;text-decoration:none;
+     text-underline:none"> </span></span>and<span class="MsoHyperlink"><span style="color:windowtext;text-decoration:none;text-underline:none"> <a href="http://www.cc.gatech.edu/cpl/projects/graphcuttextures/">graph cuts</a><o:p></o:p></span></span></li>
+</ul>
+
+<h2>What to Turn In</h2>
+
+<p>In addition to your source code and executables, turn in a web page
+describing your approach and results.&nbsp; In particular:</p>
+
+<p>&nbsp; &nbsp; &nbsp;&nbsp;<b>Panorama Mosaic Stitching</b></p>
+
+<p>&nbsp; &nbsp; &nbsp; This portion of the web page should <span class="GramE">contain<span style="mso-spacerun:yes">� </span>the</span> following: </p>
+
+<ul style="margin-top:0in" type="disc">
+ <li class="MsoNormal" style="mso-list:l7 level1 lfo13;tab-stops:list .5in">At
+     least three panoramas:&nbsp; (1) the test sequence, (2), one from the <span class="SpellE">Kaidan</span> head, and (3) one from a hand-held
+     sequence.&nbsp; Each panorama should be shown as (1) a low-res <span class="SpellE">inlined</span> image on the web page, (2) a link that you can
+     click on to show the full-resolution .jpg file, <b>AND</b> (3) embedded in
+     a viewer as described above. </li>
+ <li class="MsoNormal" style="mso-list:l7 level1 lfo13;tab-stops:list .5in">A&nbsp;short
+     description of what worked well and what didn�t.&nbsp; If you tried
+     several variants or did something non-standard, please describe this as
+     well.</li>
+ <li class="MsoNormal" style="mso-list:l7 level1 lfo13;tab-stops:list .5in">Describe
+     any extra credit.</li>
+</ul>
+
+<p>The web-page should be placed in the project2/artifact directory along with
+all the images in JPEG format. If you are unfamiliar with HTML you can use any
+web-page editor such as FrontPage, Word, or Visual Studio 7.0 to make your
+web-page. &nbsp;The <a href="http://www.kompozer.org/"><span class="SpellE"><span style="color:windowtext;text-decoration:none;text-underline:none">KompoZer</span></span></a>
+HTML editor is easy to use and highly recommended. &nbsp;Here are&nbsp;some
+webpage design <a href="http://www.cs.washington.edu/education/courses/455/04wi/projects/project1/web/makingpages.html"><span style="color:windowtext;text-decoration:none;text-underline:none">tips.</span></a></p>
+
+<h2><a name="panoramalinks">Panorama Links </a></h2>
+
+<ul type="disc">
+ <li class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l13 level1 lfo14;tab-stops:list .5in"><a href="http://www.panoramas.dk/">Panoramas.dk</a>: weekly archive of
+     full-screen, high-quality panoramas worldwide </li>
+ <li class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l13 level1 lfo14;tab-stops:list .5in"><a href="http://www.vrseattle.com/">VR Seattle</a>: Seattle &amp; Washington
+     panorama</li>
+ <li class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l13 level1 lfo14;tab-stops:list .5in">Matt Brown's <span class="SpellE">Autostitch</span> <a href="http://www.cs.ubc.ca/~mbrown/autostitch/autostitch.html">page</a>.</li>
+ <li class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l13 level1 lfo14;tab-stops:list .5in"><a href="http://www.destination360.com/start1.htm">Peru Panoramas</a> </li>
+ <li class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l13 level1 lfo14;tab-stops:list .5in"><a href="http://www.cs.washington.edu/education/courses/csep576/05wi/projects/project2/pano1.zip">A
+     complete set of test images</a></li>
+</ul>
+
+<div style="margin-top:5.0pt;margin-bottom:5.0pt">
+
+<div class="MsoNormal" align="center" style="text-align:center">
+
+<hr size="2" width="100%" align="center">
+
+</div>
+
+</div>
+
+<p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto"><i>Last
+modified on Wednesday, April 16, 2008</i></p>
+
+</div>
+
+</div>
+
+
+
+
+</body></html>
