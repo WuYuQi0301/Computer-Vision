@@ -1,11 +1,10 @@
-Microsoft Visual Studio Solution File, Format Version 9.00
-# Visual Studio 2005
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ImageLib", "ImageLib\ImageLib.vcproj", "{827608E3-E930-4B4E-A5A8-24EFDC6EAC9E}"
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.106
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ImageLib", "ImageLib\ImageLib.vcxproj", "{827608E3-E930-4B4E-A5A8-24EFDC6EAC9E}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Panorama", "project2.vcproj", "{968112E8-4636-4FAC-BBFA-220228A4605E}"
-	ProjectSection(ProjectDependencies) = postProject
-		{827608E3-E930-4B4E-A5A8-24EFDC6EAC9E} = {827608E3-E930-4B4E-A5A8-24EFDC6EAC9E}
-	EndProjectSection
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Panorama", "project2.vcxproj", "{968112E8-4636-4FAC-BBFA-220228A4605E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,5 +23,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {71E4FD1E-8AF9-466E-B95C-F38144A0B4EA}
 	EndGlobalSection
 EndGlobal
