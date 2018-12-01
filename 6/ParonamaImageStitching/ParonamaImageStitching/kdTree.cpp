@@ -202,10 +202,10 @@ void kdTree::clearTree(Node* node)
 }
 //root=kd树根节点；target=查询目标特征点，ans=查询结果，k=查询数量，maxCheck=最大提取队列次数（超时限制）
 //成功返回个数，否则返回-1
-int BFFSearch(Node* root, Feature* target, Feature** ans, int k, int maxCheck)
+int kdTree::BBFSearch(Node* root, Feature* target, Feature** ans, int k,int maxCheck)
 {
 	Node* curNode;
-	PriorityQueue pq;
+	priority_queue<Node*> pq;
 	
 	if (!ans || !target || !root)
 	{
@@ -214,13 +214,69 @@ int BFFSearch(Node* root, Feature* target, Feature** ans, int k, int maxCheck)
 	}
 	int times = 0;
 	ans = new Feature*[k];
-	pq.insert(root, 0);
+	double minDist = 1000;
+	pq.push(root);
 	while (!pq.empty() && times < maxCheck)
 	{
 		times++;
 		curNode = pq.top();
-		curNode = searchDownLeaf(curNode, target, pq);// 找到特征点在KD树叶子节点位置，过程中未查询的加入优先队列  
-		//遍历以curNode为根的子树的所有节点
-
+		Feature* nearest1 = searchDownLeaf(curNode, target, pq);// 找到特征点在KD树叶子节点位置，过程中未查询的加入优先队列  
+		
+		//if (nearest == )
+		double tempDist = getDist(nearest1, target);
+		if (minDist > tempDist)
+		{
+			minDist = tempDist;
+			ans[0] = nearest1;
+		}
 	}
 }
+
+Feature* kdTree::searchDownLeaf(Node* node, Feature* target, priority_queue<Node*>& pq)
+{
+	Node* curNode = node;
+	Feature* nearest = node->features;
+	double minDist = getDist(nearest, target);
+
+	while (curNode != NULL)
+	{
+		int s = curNode->split;
+		Feature* curData = curNode->features;
+		if (target->descr[0][s] <= curNode->value)
+		{
+			pq.push(curNode->right);
+			curNode = curNode->left;
+		}
+		else {
+			pq.push(curNode->left);
+			curNode = curNode->right;
+		}
+		if (getDist(nearest, target) > getDist(curData, target)) 
+		{
+			nearest = curData;
+			minDist = getDist(curData, target);
+		}
+	}
+	return nearest;
+}
+
+double kdTree::getDist(Feature* f1, Feature* f2)
+{
+	double dist = 0;
+	int length = FEATURE_MAX_D;
+	for (int i = 0; i < length; i++)
+	{
+		dist += pow(f1->descr[0][i] - f2->descr[0][i], 2);
+	}
+	if (f1->ori_count == 2 && f2->ori_count == 2)
+	{
+		double dist2 = 0;
+		for (int i = 0; i < length; i++)
+		{
+			dist2 += pow(f1->descr[1][i] - f2->descr[1][i], 2);
+		}
+		dist = (dist + dist2) / 2;
+	}
+	return dist;
+}
+

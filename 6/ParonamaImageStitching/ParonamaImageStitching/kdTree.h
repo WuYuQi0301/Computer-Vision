@@ -4,6 +4,7 @@
 #include <string>
 #include <fstream>
 #include <sstream>
+#include <queue>
 using namespace std;
 
 #define FEATURE_MAX_D 128
@@ -72,5 +73,9 @@ private:
 	//bool Inser
 	//删除节点
 	//查找
-	int BBFknn(int k, Feature target);
+	int BBFSearch(Node* root, Feature* target, Feature** ans, int k, int maxCheck);
+	Feature* searchDownLeaf(Node*, Feature*, priority_queue<Node*>&);
+	
+	//计算特征点举例
+	double getDist(Feature* f1, Feature* f2);
 };

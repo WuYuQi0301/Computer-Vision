@@ -23,7 +23,6 @@
     <ClCompile Include="myWarpSpherical.cpp" />
     <ClCompile Include="mySift.cpp" />
     <ClCompile Include="test.cpp" />
-    <ClCompile Include="testsift.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CImg.h" />

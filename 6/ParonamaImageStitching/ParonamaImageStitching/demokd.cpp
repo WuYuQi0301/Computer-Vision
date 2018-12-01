@@ -12,32 +12,15 @@ int kdtree_bbf_knn(struct kd_node* kd_root, struct feature* feat, int k,
 	while (min_pq->n > 0 && t < max_nn_chks)     //如果队列不为空且在超时次数内  
 	{
 		expl = (struct kd_node*)minpq_extract_min(min_pq);//在优先队列中取出一个元素  
-		if (!expl)
-		{
-			fprintf(stderr, "Warning: PQ unexpectedly empty, %s line %d\n",
-				__FILE__, __LINE__);
-			goto fail;
-		}
 
 		expl = explore_to_leaf(expl, feat, min_pq);// 找到特征点在KD树叶子节点位置，过程中未查询的加入优先队列  
-		if (!expl)
-		{
-			fprintf(stderr, "Warning: PQ unexpectedly empty, %s line %d\n",
-				__FILE__, __LINE__);
-			goto fail;
-		}
 
 		for (i = 0; i < expl->n; i++)     //遍历以expl为根的子树所有节点  
 		{
 			//printf("%x",expl->features[i].feature_data);  
 			tree_feat = &expl->features[i];
 			bbf_data = malloc(sizeof(struct bbf_data));
-			if (!bbf_data)
-			{
-				fprintf(stderr, "Warning: unable to allocate memory,"
-					" %s line %d\n", __FILE__, __LINE__);
-				goto fail;
-			}
+
 			//bbf_data->old_data 这个数据没有用途，因为特征点属性中没有使用到feature_data这个自定义类型  
 			bbf_data->old_data = tree_feat->feature_data;
 			printf("%x", bbf_data->old_data);
@@ -121,8 +104,6 @@ static struct kd_node* explore_to_leaf(struct kd_node* kd_node,    //从kd_node开
 
 		if (ki >= feat->d)
 		{
-			//fprintf(stderr, "Warning: comparing imcompatible descriptors, %s" \
-				" line %d\n", __FILE__, __LINE__);
 			return NULL;
 		}
 		if (feat->descr[ki] <= kv)
@@ -138,32 +119,9 @@ static struct kd_node* explore_to_leaf(struct kd_node* kd_node,    //从kd_node开
 
 		if (minpq_insert(min_pq, unexpl, ABS(kv - feat->descr[ki])))   //未查询到的结点，按差值大小加入优先队列  
 		{
-			//fprintf(stderr, "Warning: unable to insert into PQ, %s, line %d\n",
-				//__FILE__, __LINE__);
 			return NULL;
 		}
 	}
 
 	return expl;
-}
-计算两特征点的欧式距离：
-[cpp] view plain copy
-double descr_dist_sq(struct feature* f1, struct feature* f2)
-{
-	double diff, dsq = 0;
-	double* descr1, *descr2;
-	int i, d;
-
-	d = f1->d;
-	if (f2->d != d)
-		return DBL_MAX;
-	descr1 = f1->descr;
-	descr2 = f2->descr;
-
-	for (i = 0; i < d; i++)
-	{
-		diff = descr1[i] - descr2[i];
-		dsq += diff * diff;
-	}
-	return dsq;
 }
